@@ -1,0 +1,2 @@
+string = "be a best person"
+print("best" in string)
