@@ -1,0 +1,79 @@
+
+def positive_negative_zero():
+    num = int(input("enter a number:"))
+    if num > 0:
+        print("number is positive")
+    elif num < 0:
+        print("number is negative")
+    else:
+        print("number is zero")
+
+positive_negative_zero()
+
+def largestnum():
+    a = int(input("enter two numbers: "))
+    b = int(input("enter two numbers: "))
+    if a > b:
+        print("a is larger")
+    else:
+        print("b is larger")
+largestnum()
+
+def printnum():
+    number = 1
+    while number <= 10 :
+        print ( number )
+        number += 1
+printnum()
+
+def evennum():
+    for num in range(1,21):
+       if  num%2==0:
+        print(num)
+evennum()
+
+def checkevn_odd():
+    num = int(input("enter a number"))
+    if num%2==0:
+        print (" number is an even number ")
+    else:
+        print("number is an odd number ")
+checkevn_odd()          
+
+def table():
+    num = int(input("enter a number"))
+    for i in range(1, 11):
+        print(f"{num} x {i} = {num * i}")
+table()
+
+def factorial():
+    num = int(input("Enter a number: "))
+    factorial = 1
+
+    for i in range(1, num + 1):
+        factorial *= i
+
+        print(f"Factorial of {num} is {factorial}")
+factorial()
+
+def natural_num():
+    for i in range (1,11):
+        print (i)
+natural_num()    
+
+def sum():
+    num = int (input("enter a number:"))
+    n = 0
+    for i in range(1, num + 1):
+        n += i
+        print(f"Sum of numbers from 1 to {num} is {n}")
+sum()
+
+def vovel_cons():
+    x = input("enter a leter")
+    if x.lower() in ['a','e','i','o','u']:
+        print("given leter is an vovel ")
+    else:
+        print("given leter is a consonent")
+
+vovel_cons()
