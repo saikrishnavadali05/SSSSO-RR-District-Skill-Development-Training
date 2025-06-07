@@ -1,4 +1,5 @@
-#program 3
+#Use len() to find the length of any input string.
+
 # Get input from the user
 input_string = input("Enter a string: ")
 

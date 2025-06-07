@@ -1,4 +1,5 @@
-#program 1
+#Write a Python program to get the first and last character of a string.
+
 # Get input from the user
 input_string = input("Enter a string: ")
 

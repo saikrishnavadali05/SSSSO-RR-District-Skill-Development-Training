@@ -1,3 +1,5 @@
+#Use count() to find the number of occurrences of a character in a string.
+
 # Get input from the user
 input_string = input("Enter a string: ")
 char_to_count = input("Enter the character to count: ")

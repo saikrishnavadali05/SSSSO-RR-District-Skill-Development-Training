@@ -1,4 +1,5 @@
-#program 2
+#Check whether a string is palindrome or not (e.g., "madam").
+
 # Get input from the user
 input_string = input("Enter a string: ")
 
