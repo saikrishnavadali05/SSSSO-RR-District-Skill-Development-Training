@@ -1,0 +1,6 @@
+{"name": "Alice", 
+"age": 30, 
+"city": "New York", 
+"skills": ["Python", "JavaScript", "SQL"], 
+"is_active": true, 
+"balance": 100.5}
