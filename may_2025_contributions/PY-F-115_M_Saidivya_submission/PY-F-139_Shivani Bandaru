@@ -1,0 +1,123 @@
+chapter 10
+basic
+1.Read Mode ('r')
+with open('example.txt', 'r') as f:        #output:Hello
+    print(f.read())
+ Write Mode ('w')
+ with open('example.txt', 'w') as f:       #output:before running:Old content
+    f.write("New content")                  #output:after running:New content
+Append Mode ('a')
+with open('example.txt', 'a') as f:          #output:Before running:Hello
+    f.write("\nMore content")                 #output:After running:Hello(More content)
+
+ 3.with open('example.txt', 'r') as file:
+    lines = file.readlines()                   #output:Line 1
+    for line in lines:                          #output:Line 2
+    print(line.strip())                          #output:Line 3
+
+4.lines = ["Line 1", "Line 2", "Line 3"]      #output:Line 1
+with open('output.txt', 'w') as file:          #output:Line 2
+    for line in lines:                          #output:Line 3
+        file.write(line + '\n') 
+intermediate:
+1.import csv
+with open('data.csv', mode='r', newline='') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row)   
+output:sample:
+name,age,city                 #output:{'name': 'Alice', 'age': '30', 'city': 'New York'}
+Alice,30,New York              #output:{'name': 'Bob', 'age': '25', 'city': 'Los Angeles'}
+Bob,25,Los Angeles              #output:{'name': 'Charlie', 'age': '35', 'city': 'Chicago'}   
+Charlie,35,Chicago
+8.import os
+old_name = 'old_file.txt'                     #output:File renamed from 'old_file.txt' to 'new_file.txt'
+new_name = 'new_file.txt'
+os.rename(old_name, new_name)
+print(f"File renamed from '{old_name}' to '{new_name}'")
+5.import xml.etree.ElementTree as ET
+tree = ET.parse('example.xml')
+root = tree.getroot()
+for book in root.findall('book'):
+    title_elem = book.find('title')  
+    author_elem = book.find('author') 
+     if title_elem is not None:
+        title = title_elem.text
+        print(f"Title: {title}")
+7.1. Reading line by line (text files)
+with open('large_file.txt', 'r') as file:
+    for line in file:
+        process(line)  
+2. Reading in fixed-size chunks (binary or text files)
+def read_in_chunks(file_object, chunk_size=1024):
+    while chunk := file_object.read(chunk_size):
+        yield chunk
+with open('large_file.txt', 'r') as file:
+    for chunk in read_in_chunks(file):
+        process(chunk)
+3. Memory-efficient XML parsing (using iterparse)
+import xml.etree.ElementTree as ET
+for event, elem in ET.iterparse('large_file.xml', events=('end',)):
+    if elem.tag == 'your_tag':
+        process(elem.text)
+        elem.clear()  
+advanced:
+1.import csv
+import json
+
+def csv_to_nested_json(csv_file_path):
+    nested_json = []
+    
+    with open(csv_file_path, mode='r', newline='', encoding='utf-8') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            nested_json.append(dict(row))  # Each row becomes a dictionary
+            
+    return json.dumps(nested_json, indent=4)
+    Usage:
+    json_output = csv_to_nested_json('data.csv')
+print(json_output)
+output:
+[
+    {
+        "id": "1",
+        "name": "Alice",
+        "age": "30",
+        "city": "New York"
+    },
+    {
+        "id": "2",
+        "name": "Bob",
+        "age": "25",
+        "city": "Los Angeles"
+         },
+    {
+        "id": "3",
+        "name": "Charlie",
+        "age": "28",
+        "city": "Chicago"
+    }
+]
+2.import xml.etree.ElementTree as ET
+tree = ET.parse('data.xml')
+root = tree.getroot()
+for book in root.findall('book'):
+    author = book.find('author')
+    if author is not None and author.text == 'John Doe':
+        author.text = 'John A. Doe'
+tree.write('modified_data.xml', encoding='utf-8', xml_declaration=True)
+3.1. Default buffering (automatic)
+with open('example.txt', 'w') as f:
+    f.write("Hello, world!")
+   2. Unbuffered (buffering=0) (binary only)
+with open('example.bin', 'wb', buffering=0) as f:
+    f.write(b'Raw bytes')
+    3.Line buffered (buffering=1) (text mode)
+with open('example.txt', 'w', buffering=1) as f:
+    f.write("First line\n")
+    4.Custom buffer size
+with open('example.txt', 'w', buffering=8192) as f:
+    f.write("Large buffer size")
+
+
+
