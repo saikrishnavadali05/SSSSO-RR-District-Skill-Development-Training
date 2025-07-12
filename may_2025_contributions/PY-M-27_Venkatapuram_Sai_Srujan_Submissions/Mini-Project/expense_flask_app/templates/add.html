@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Transaction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles to achieve a more distinct look */
+        body {
+            background-color: #f0f2f5; /* A slightly softer background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .transaction-card {
+            background-color: #ffffff;
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Softer shadow */
+            padding: 40px;
+            width: 100%;
+            max-width: 500px; /* Constrain width for better aesthetics */
+        }
+        .transaction-card h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .form-label-custom {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 8px; /* Space between label and input */
+        }
+        .form-control-custom, .form-select-custom, .form-textarea-custom {
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Slightly more rounded inputs */
+            padding: 12px 15px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-control-custom:focus, .form-select-custom:focus, .form-textarea-custom:focus {
+            border-color: #007bff; /* Highlight on focus */
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        .btn-primary-custom {
+            background-color: #28a745; /* Green for add */
+            border-color: #28a745;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-primary-custom:hover {
+            background-color: #218838;
+            transform: translateY(-1px); /* Slight lift on hover */
+        }
+        .btn-secondary-custom {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .btn-secondary-custom:hover {
+            background-color: #5a6268;
+            transform: translateY(-1px);
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px; /* Space between buttons */
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="transaction-card">
+    <h2>Add New Transaction</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="date" class="form-label-custom">Date</label>
+            <input type="date" name="date" id="date" class="form-control-custom w-100">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label-custom">Type</label>
+            <select name="type" id="type" class="form-select-custom w-100" required>
+                <option value="">Select Type</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label-custom">Category</label>
+            <input type="text" name="category" id="category" class="form-control-custom w-100" required>
+        </div>
+        <div class="mb-3">
+            <label for="amount" class="form-label-custom">Amount</label>
+            <input type="number" name="amount" id="amount" class="form-control-custom w-100" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label-custom">Description</label>
+            <textarea name="description" id="description" class="form-textarea-custom w-100" rows="2"></textarea>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn btn-primary-custom flex-grow-1">Add Transaction</button>
+            <a href="/" class="btn btn-secondary-custom flex-grow-1">Back</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
