@@ -118,3 +118,15 @@ unit = Get_unit_system()
 Prsn_Weight,Prsn_Height = Get_Weight_Height(unit)
 BMI = BMI_Calculator(Prsn_Weight,Prsn_Height,unit)
 Prediction_BMI(BMI,Prsn_Age,Prsn_Gender)
+
+
+import tkinter
+
+root = tkinter.Tk()
+root.title("BMI Calculator")
+root.geometry("300x300")
+root.configure(bg = #ff5733 )
+
+root.mainloop()
+
+
