@@ -62,7 +62,7 @@ def Get_Weight_Height(unit):
             Prsn_Height = float(input("Please enter your height in inches : "))
         else:
             Prsn_Weight = float(input("Please enter your weight in Kilograms : "))
-            Prsn_Height = float(input("Please enter your height in meters : "))
+            Prsn_Height = float(input("Please enter your height in Centimeters : "))
         return Prsn_Weight, Prsn_Height
     except ValueError:
         print("Invalid input. Please enter numeric value for weight and height.")
@@ -72,7 +72,8 @@ def Get_Weight_Height(unit):
 def BMI_Calculator(Prsn_Weight,Prsn_Height,unit):
 
     if unit == 'metric':
-        BMI = round(Prsn_Weight / Prsn_Height**2 , 1)
+        
+        BMI = round(Prsn_Weight / (Prsn_Height/100)**2 , 1)
     elif unit == 'us':
         BMI = round(Prsn_Weight * 703 / Prsn_Height**2 , 1)
     else:
@@ -120,13 +121,6 @@ BMI = BMI_Calculator(Prsn_Weight,Prsn_Height,unit)
 Prediction_BMI(BMI,Prsn_Age,Prsn_Gender)
 
 
-import tkinter
 
-root = tkinter.Tk()
-root.title("BMI Calculator")
-root.geometry("300x300")
-root.configure(bg = #ff5733 )
-
-root.mainloop()
 
 
