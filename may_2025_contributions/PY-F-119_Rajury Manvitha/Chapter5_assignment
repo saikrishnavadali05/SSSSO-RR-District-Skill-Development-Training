@@ -186,17 +186,18 @@ def is_rotation(s1, s2):
 if is_rotation(s1, s2):
     print(f"'{s2}' is a rotation of '{s1}'.")
 
-
-s1 = "abc"
-s2 = "cad"  
-if len(s1) != len(s2):
-    print(f"'{s2}' is not a rotation of '{s1}'.")
-if len(s1) == len(s2):
-    temp = s1 + s1
-    if s2 in temp:
-        print(f"'{s2}' is a rotation of '{s1}'.")
-    else:
-        print(f"'{s2}' is not a rotation of '{s1}'.")
+"""29.Implement a string compression algorithm (e.g., "aaabbb" → "a3b3")."""
+def compress_string(s):
+    compressed = []
+    count = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]:
+            count += 1
+        else:
+            compressed.append(s[i - 1] + str(count))
+            count = 1
+    compressed.append(s[-1] + str(count))  # Add the last character and its count
+    return ''.join(compressed)
 
 
 

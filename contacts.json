@@ -18,5 +18,9 @@
     "tara": {
         "phone": "999",
         "email": "tara@xyz.com"
+    },
+    "laya": {
+        "phone": "666",
+        "email": "laya@xyz.com"
     }
 }
