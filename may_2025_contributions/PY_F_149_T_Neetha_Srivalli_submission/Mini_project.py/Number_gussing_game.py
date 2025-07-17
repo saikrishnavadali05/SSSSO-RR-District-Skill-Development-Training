@@ -52,7 +52,7 @@ def guessing_game():   #Main function to run the guessing game
         print(f"\nHey!!You've used all {max_attempts} attempts. The number was: {number_to_guess}")
         print("Better luck next time champ!")
 
-    print("\nThanks for playing!")
+    print("\nThanks for playing!") #End of the game message
 
 # Run the game
 if __name__ == "__main__":
