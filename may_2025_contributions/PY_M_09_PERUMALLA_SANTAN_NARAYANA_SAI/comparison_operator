@@ -1,0 +1,7 @@
+x=5
+y=4
+z=3
+if(x!=y==z):
+    print('true')
+else:
+    print('false')
