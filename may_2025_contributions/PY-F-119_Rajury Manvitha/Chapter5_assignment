@@ -1,0 +1,206 @@
+"""1. Write a Python program to get the first and last character of a string."""
+"""name= input("enter a string : ")
+print(f" first character is {name[0]} and last charater is {name[-1]}")"""
+
+"""2.Check whether a string is palindrome or not (e.g., "madam")."""
+"""s=input("enter the string: ")
+if s == s[::-1]:
+  print(f"{s} is a palindrome")
+else:
+    print(f"{s} is not a palindrome")"""
+
+"""3.Use len() to find the length of any input string."""
+"""s=input("enter a string: ")
+print(f"length is {len(s)}")"""
+
+"""4.Convert a given string to uppercase and lowercase using string methods."""
+"""s=input("enter a string: ")
+print(f" uppercase is {s.upper()} and lowercase is {s.lower()}")"""
+
+"""5.Concatenate two strings using + operator and .format()."""
+"""s1=input("enter first string: ")
+s2=input("enter second string: ")
+print(f"concatenated string(+) is {s1+s2}")
+print("concatenated string(.format()) is {}".format(s1+s2))"""
+
+"""6.Print each character in a string using indexing and a loop."""
+"""s= input("enter a string: ")
+for i in range(len(s)):
+    print(f"character at index {i} is {s[i]}") """
+
+"""7.Slice a string to get every second character from index 1 to 10."""
+s="i love india"
+print(f"every second character from index 1 to 10 is {s[1:10:2]}")
+
+"""8.Use count() to find the number of occurrences of a character in a string."""
+s="manvitha"
+print(f" occurance of 'a' in string {s} is {s.count('a')}")
+
+"""9.Check if a substring is present in a given string using in."""
+s="i love india"
+sub="love"
+if sub in s:
+    print(f"'{sub}' is present in string '{s}'")        
+else:
+    print(f"'{sub}' is not present in string '{s}'")    
+
+"""10.Take a user's name as input and print a greeting using .format()."""    
+"""name = input("Enter your name: ")
+print("Hello, {}! Welcome to the program.".format(name))"""
+
+"""11.Write a function to reverse a string using slicing."""
+"""s = input("Enter a string to reverse: ")
+def reverse(s):
+    return s[::-1]
+print(f" {reverse(s)}") """
+
+"""12.Check whether a string contains only digits using built-in functions."""
+s="12345$"
+if s.isdigit():
+    print(f"'{s}' contains only digits.")
+else:
+    print(f"'{s}' does not contain all digits.")    
+
+"""13.Replace all spaces in a string with dashes.""" 
+s = "i love india"
+s = s.replace(" ", "-")   
+print(f"{s}")
+
+"""14.Capitalize the first letter of every word in a sentence using title()."""   
+s="i love india"
+print(f"{s.title()}")
+
+"""15.Compare two strings for equality, ignoring case sensitivity."""
+s1 = "Hello World"
+s2 = "hello world"
+if s1.lower() == s2.lower():
+    print("The strings are equal (ignoring case).")
+else:   
+    print("The strings are not equal (ignoring case).")  
+
+"""16.Split a string on a comma and print each element."""
+s = "apple,banana,cherry"
+elements = s.split(",") 
+for element in elements:
+    print(element)  
+
+"""17.Remove all punctuation from a sentence (hint: use string.punctuation)."""    
+import string
+s = "Hello, world! How's it going?"
+copy = s
+for i in range(0,len(s)):
+    if s[i] in string.punctuation :
+     copy=copy.replace(s[i], "")
+print(f"after removing punctuation : {copy}")
+
+"""18.Extract the domain from an email address using slicing and split()."""
+s="manvitha@abc.com"
+print(f"domain is {s.split('@')[1]}")
+
+"""19.Check if a string starts with a vowel and ends with a consonant."""
+s = "apple"
+if s[0] in 'aeiou' and s[-1] not in 'aeiou':
+    print(f"The string '{s}' starts with a vowel and ends with a consonant.")
+else:
+    print(f"The string '{s}' does not start with a vowel or does not end with a consonant.")    
+
+"""20.Write a function that takes a sentence and returns only the words with more than 4 letters."""   
+s = "I love programming in Python"
+def sentence(s):
+    l = s.split()
+    result = []
+    for i in l:     
+        if len(i) > 4:
+            result.append(i)
+    return result
+print(f"Words with more than 4 letters: {sentence(s)}")          
+
+"""21.Create a custom string formatting function using format() and positional arguments."""
+"""first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+def custom(first, last):
+    return "Hello, {} {}! Welcome to the program.".format(first, last)
+print(f"{custom(first_name, last_name)}")"""
+
+"""22.Write a program to find the longest word in a sentence."""
+s = "I love programming in Python"
+s1=s.split()
+longest_word = s1[0]
+for i in s1    :
+    if len(i) > len(longest_word):
+        longest_word = i
+print(f"The longest word in sentence is: {longest_word}")
+
+"""23.Count the frequency of each character in a string and display as a dictionary."""
+s= "hello world"
+dict_string = {}
+for i in s:
+    dict_string[i]=s.count(i)
+print(dict_string)
+
+"""24.Implement a Caesar cipher (basic encryption by shifting characters)."""
+text = "hello world"
+def caesar_cipher(text, shift): 
+    result = ""
+    for i in text:
+     if i.isalpha():
+        result = result + (chr(ord(i) + shift))
+     else :
+        result = result + i 
+    return result
+print(f"encrypted text : {caesar_cipher(text,2)}")
+
+"""25.Write a function to normalize whitespace in a string (multiple spaces to one)."""
+s= "This    is   a   string    with   irregular   spacing."
+s1= s.split()
+def whitespace(s):
+    s2=''
+    for i in s1:
+        s2=s2+i+' '
+    return s2
+print(f"Normalized string: '{whitespace(s)}'")
+
+"""26.Generate a unique hash from a string using hash() and explain its use case."""
+"""The hash() function in Python returns a unique integer for a given object, which can be used for quick comparisons or as a key in dictionaries."""
+s = "hello world"
+print(f"Hash of the string '{s}' is: {hash(s)}")
+
+"""27.Find all unique substrings of length k in a given string."""
+s = "hello"
+k = 2
+unique = []
+for i in range(len(s) - k + 1):
+        substring = s[i:i+k]
+        if substring not in unique:
+         unique.append(substring)          
+print(f"Unique substrings of length {k} in '{s}': {unique}")
+
+"""28.Check if one string is a rotation of another (e.g., "abc" and "cab")."""
+s1 = "abc"
+s2 = "cab"  
+def is_rotation(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    temp = s1 + s1
+    return s2 in temp
+if is_rotation(s1, s2):
+    print(f"'{s2}' is a rotation of '{s1}'.")
+
+
+s1 = "abc"
+s2 = "cad"  
+if len(s1) != len(s2):
+    print(f"'{s2}' is not a rotation of '{s1}'.")
+if len(s1) == len(s2):
+    temp = s1 + s1
+    if s2 in temp:
+        print(f"'{s2}' is a rotation of '{s1}'.")
+    else:
+        print(f"'{s2}' is not a rotation of '{s1}'.")
+
+
+
+
+
+
+
