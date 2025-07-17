@@ -1,0 +1,38 @@
+In halls of digital, where data sleeps,
+A subtle language, deep within it keeps.
+File modes, guardians of the byte and line,
+Define who sees, who alters, who can twine.
+
+The user, owner of this digital seed,
+Holds primary sway, a powerful creed.
+Then group, a brotherhood, a chosen few,
+Sharing access, what they may pursue.
+And others, shadows in the vast domain,
+Granted glimpses, or held back from gain.
+
+The read bit, R, a silent, knowing eye,
+Allows the content to be drifting by.
+To glimpse the verses, or the numbers bright,
+But leaves untouched, in its own gentle light.
+
+The write bit, W, a sculptor's potent hand,
+To shape and mold, across the digital sand.
+To add new lines, to alter what's begun,
+A power to change, beneath the digital sun.
+
+The execute bit, X, a vibrant, living plea,
+To run the program, set the spirit free.
+To make the script perform its destined art,
+A breath of life, within the program's heart.
+
+In threes they gather, a numerical dance,
+From 0 to 7, a coded, quick glance.
+Like 777, a world flung open wide,
+No lock, no bar, where all may freely stride.
+Or 644, a whisper, soft and low,
+Read for all, but only owner's write can flow.
+
+So heed the wisdom, when you set their gleam,
+These humble bits, a power in a dream.
+For through their grace, or through their strict decree,
+The digital world unfolds for all to see.
