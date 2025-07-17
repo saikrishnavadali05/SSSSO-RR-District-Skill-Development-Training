@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Calendar Generator</h1>
+
+    <form method="POST">
+        <label>Year:
+            <input type="text" name="year" required>
+        </label><br><br>
+
+        <label>Month (1‑12 or "all"):
+            <input type="text" name="month">
+        </label><br><br>
+
+        <input type="submit" value="Show Calendar">
+    </form>
+
+    <h2>Result:</h2>
+    <div id="result" class="cal-container">
+        {{ output|safe }}
+    </div>
+</body>
+</html>
