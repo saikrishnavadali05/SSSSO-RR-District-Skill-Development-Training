@@ -1,0 +1,6 @@
+a = input("Enter first boolean value (True/False): ") 
+b = input("Enter second boolean value (True/False): ") 
+print("AND:", a and b)
+print("OR:", a or b)
+print("NOT a:", not a)
+print("NOT b:", not b)

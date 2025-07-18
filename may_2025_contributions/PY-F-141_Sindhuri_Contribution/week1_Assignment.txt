@@ -1,0 +1,204 @@
+# Assgnmt: 1
+
+first_name = "Sindhuri"
+last_name = "Batchu"
+print(first_name + " " + last_name)
+
+
+# Assgnmt: 2
+# Ask the user for two whole numbers
+num1 = int(input("Enter the first whole number: "))
+num2 = int(input("Enter the second whole number: "))
+
+# Perform calculations
+sum_result = num1 + num2
+difference = num1 - num2
+product = num1 * num2
+quotient = num1 / num2
+
+#Print calculated value
+
+print("Sum:", sum_result)
+print("Difference:", difference)
+print("Product:", product)
+print("Quotient:", quotient)
+
+
+# Assgnmt: 3
+count = 0
+count += 1
+count += 1
+count += 1
+print("Final count:", count)
+
+
+# Assgnmt: 4
+Age = int(input("Enter the Age: "))
+
+# TRUE whe Age atleast 18
+if Age >17:
+   print("TRUE")
+else:
+    print("FALSE")
+    
+
+# Assgnmt: 5
+
+# Read two Boolean values from the user
+bool1 = input("Enter the first Boolean value (True/False): ") == "True"
+bool2 = input("Enter the second Boolean value (True/False): ") == "True"
+
+# Perform logical operations
+print("AND:", bool1 and bool2)
+print("OR:", bool1 or bool2)
+print("NOT first value:", not bool1)
+print("NOT second value:", not bool2)
+
+
+# Assgnmt: 6
+values = [0, '', 42]
+
+for value in values:
+     if value:
+          print(f"{repr(value)} is truthy")
+     else:
+          print(f"{repr(value)} is falsy")
+
+
+# Assgnmt: 7
+# Define two integers
+a = int(input("Enter the first integer: "))
+b = int(input("Enter the second integer "))
+
+# Perform bitwise operations
+bitwise_and = a & b
+bitwise_or = a | b
+
+# Print the results
+print("Bitwise AND:", bitwise_and)
+print("Bitwise OR:", bitwise_or)
+
+
+# Assgnmt: 8
+a = [1, 2]
+b = [1, 2]
+
+print("a == b:", a == b)  # Checks if values are equal
+print("a is b:", a is b)  # Checks if both refer to the same object in memory
+
+
+# Assgnmt: 9
+
+letter = input("Enter a letter: ")
+
+# Check if the letter is in the word "python"
+
+if letter in "python":
+      print({letter},"TRUE")
+else:
+      print({letter},"FALSE")
+	  
+	  
+# Assgnmt: 10
+
+color = input("Enter a favorite color: ")
+
+print("Your favorite color is ", color)
+
+
+# Assgnmt: 11
+
+#Print the numbers 1 to 5 on one line separated by commas using a single print() call.
+
+print("1,2,3,4,5")
+
+
+# Assgnmt: 12
+def square(n):
+     return [n*n]
+
+ 
+for i in range(1, 6):
+      print("The square of", i, "is ", square(i))
+
+
+# Assgnmt: 13
+for i in range(1, 6):
+     print('*' * i)
+	 
+	
+# Assgnmt: 14
+
+total = \
+     3 + 4 +\
+     5 + \
+     6 + 7
+
+
+print("Total:", total)
+
+
+# Assgnmt: 15
+
+
+# Assgnmt: 16
+
+
+# Assgnmt: 17
+# Ask the user for an integer
+num = int(input("Please enter an integer: "))
+
+# Calculate the square using the exponent operator
+square = num ** 2
+
+# Print the result
+print(f"The square of {num} is {square}.")
+
+# Assgnmt: 18
+# Function to convert Celsius to Fahrenheit
+def celsius_to_fahrenheit(celsius):
+     return celsius * 9 / 5 + 32
+
+# Read temperature in Celsius from the user
+celsius = float(input("Please enter the temperature in Celsius: "))
+
+# Convert to Fahrenheit
+fahrenheit = celsius_to_fahrenheit(celsius)
+
+# Print the result
+print(f"{celsius} degrees Celsius is equal to {fahrenheit} degrees Fahrenheit.")
+
+
+# Assgnmt: 19
+# Function to check if three numbers are in strictly increasing order
+def is_strictly_increasing(a, b, c):
+     return a < b < c
+
+# Read three numbers from the user
+a = float(input("Enter the first number: "))
+b = float(input("Enter the second number: "))
+c = float(input("Enter the third number: "))
+
+# Check and print the result
+print(is_strictly_increasing(a, b, c))
+
+
+# Assgnmt: 20
+amount = int(input("Enter an amount in rupees (less than 100): "))
+
+if amount >= 100 or amount < 0:
+     print("Please enter a valid amount less than ₹100.")
+else:
+     notes_50 = amount // 50
+     remaining = amount % 50
+     coins_10 = remaining // 10
+     print(f"To make ₹{amount}, you need:")
+     print(f"{notes_50} x ₹50 notes")
+     print(f"{coins_10} x ₹10 coins")
+
+
+
+
+
+
+
