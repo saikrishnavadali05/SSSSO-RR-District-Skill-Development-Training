@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reaction Time Tester</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body id="main">
+  <div class="container">
+    <h1>Reaction Time Tester</h1>
+    <p>Test how fast you can respond after a visual signal!</p>
+    <label for="theme">Choose Theme:</label>
+    <select id="theme">
+      {% for name in themes %}
+        <option value="{{ name }}">{{ name }}</option>
+      {% endfor %}
+    </select>
+    <button id="startBtn">Start</button>
+    <div id="status">Press Start to begin</div>
+    <h3>Leaderboard (Top 3 Fastest)</h3>
+    <ul id="leaderboard"></ul>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
