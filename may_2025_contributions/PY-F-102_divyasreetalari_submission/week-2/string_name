@@ -1,0 +1,3 @@
+#def first_lastletter():
+text="divyasree"
+print(text[0],text[-1])

@@ -1,0 +1,4 @@
+This is the first line in example text file
+This is the second line in example text file
+This is the third line in example text file
+This is the fourth line in example text file
