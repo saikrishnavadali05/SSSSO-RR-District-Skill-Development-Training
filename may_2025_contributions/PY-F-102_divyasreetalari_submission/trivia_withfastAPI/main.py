@@ -168,3 +168,6 @@ def get_categories():
             27: "Animals"
         }
     }
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/static", StaticFiles(directory="."), name="static")
