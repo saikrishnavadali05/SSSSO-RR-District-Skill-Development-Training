@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mini-project-styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>💸 Expense Tracker</h1>
+
+        <form action="/add" method="POST">
+            <label>Date:</label>
+            <input type="date" name="date" required>
+
+            <label>Amount:</label>
+            <input type="number" step="0.01" name="amount" required>
+
+            <label>Category:</label>
+            <input type="text" name="category" required>
+
+            <label>Description:</label>
+            <input type="text" name="description" required>
+
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <div class="links">
+            <a href="/summary">📊 View Summary</a>
+            <a href="/monthly-report">📅 View Monthly Chart</a>
+        </div>
+    </div>
+</body>
+</html>
