@@ -1,13 +1,20 @@
 from fastapi import FastAPI, HTTPException, Depends
-from models import Question, Answer, UserLogin
-from data import quiz_db, users_db, scores_db
+from schemas import Question, Answer, UserLogin
+from database import quiz_db, users_db, scores_db
 import html
 import httpx
 import json
 import os
 from passlib.context import CryptContext
+from enum import Enum
+
 
 app = FastAPI()
+
+class Difficulty(str, Enum):
+    easy = "easy"
+    medium = "medium"
+    hard = "hard"
 
 # Password hasher
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -75,8 +82,13 @@ def login(user: UserLogin):
 
 # ------------------ Quiz Routes ------------------
 
+#@app.get("/import-questions/")
+#async def import_questions(amount: int = 10, category: int = None, difficulty: str = "easy"):
 @app.get("/import-questions/")
-async def import_questions(amount: int = 10, category: int = None, difficulty: str = "easy"):
+async def import_questions(
+    amount: int = 10,
+    category: int = None,
+    difficulty: Difficulty = Difficulty.easy):
     url = f"https://opentdb.com/api.php?amount={amount}&difficulty={difficulty}&type=multiple"
     if category:
         url += f"&category={category}"
@@ -141,3 +153,18 @@ def get_leaderboard():
     sorted_scores = sorted(scores_db.items(), key=lambda x: x[1], reverse=True)
     leaderboard = [{"username": user, "score": score} for user, score in sorted_scores]
     return leaderboard
+@app.get("/categories/")
+def get_categories():
+    return {
+        "categories": {
+            9: "General Knowledge",
+            10: "Books",
+            11: "Film",
+            12: "Music",
+            17: "Science & Nature",
+            18: "Computers",
+            19: "Mathematics",
+            23: "History",
+            27: "Animals"
+        }
+    }
