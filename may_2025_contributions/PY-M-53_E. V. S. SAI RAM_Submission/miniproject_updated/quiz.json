@@ -1,0 +1,33 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "options": ["London", "Berlin", "Paris", "Rome"],
+    "answer": 3
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "options": ["Earth", "Mars", "Jupiter", "Venus"],
+    "answer": 2
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "options": ["Atlantic", "Indian", "Arctic", "Pacific"],
+    "answer": 4
+  },
+  {
+    "question": "Who wrote 'Mahabharata'?",
+    "options": ["VedaVyas", "Drona", "Chanakya", "Parasurama"],
+    "answer": 1
+  },
+  {
+    "question": "Who is first prime minister of india?",
+    "options": ["Nehru","Gandhi","LB.Shastri","BR.Ambedkar"],
+    "answer": 1
+  },
+  {
+    "question": "Which company made alto car?",
+    "options": ["Maruti","KIA","Honda","BYD"],
+    "answer": 1
+
+  }
+]
