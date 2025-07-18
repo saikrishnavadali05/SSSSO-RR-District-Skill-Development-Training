@@ -1,9 +1,14 @@
-from fastapi import FastAPI, HTTPException
-from schemas import UserRegister, UserLogin, QuizAnswer
-from passlib.context import CryptContext
-from data import get_users, save_users, get_scores, save_scores
-import httpx
+# 🔹 Standard library imports
 import random
+
+# 🔹 Third-party imports
+import httpx
+from fastapi import FastAPI, HTTPException
+from passlib.context import CryptContext
+
+# 🔹 Local module imports (your own files)
+from schemas import UserRegister, UserLogin, QuizAnswer
+from data import get_users, save_users, get_scores, save_scores
 
 app = FastAPI()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
