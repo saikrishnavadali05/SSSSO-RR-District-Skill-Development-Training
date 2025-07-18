@@ -1,0 +1,43 @@
+from flask import Flask, Response
+import requests
+
+app = Flask(__name__)
+
+API_KEY = "b2953adb407679885c488cd1484f6c50"  # Replace with your actual OpenWeatherMap API key
+
+# Ask for city name from user
+city = input("Enter city name: ")
+
+# Function to fetch weather data
+def get_weather(city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return {
+            "city": data["name"],
+            "country": data["sys"]["country"],
+            "temp": data["main"]["temp"],
+            "humidity": data["main"]["humidity"],
+            "description": data["weather"][0]["description"].capitalize()
+        }
+    else:
+        return None
+
+weather_data = get_weather(city)
+
+@app.route("/")
+def show_weather(): 
+    if weather_data:
+        output = (
+            f"Weather Report for {weather_data['city']}, {weather_data['country']}\n"
+            f"Temperature: {weather_data['temp']}°C\n"
+            f"Humidity: {weather_data['humidity']}%\n"
+            f"Condition: {weather_data['description']}"
+        )
+    else:
+        output = "Error: Could not retrieve weather data. Please check your API key or city name."
+    return Response(output, mimetype="text/plain")
+
+if __name__ == "__main__":
+    app.run(debug=True)
