@@ -1,0 +1,10 @@
+a = 4
+b = 5
+x = 2.5
+y = 3.5
+print(a+b,x+y)
+print(a-b,x-y)
+print(a*b,x*y)
+print(a/b,x/y)
+print(a//b,x//y)
+print(a**b,x**y)

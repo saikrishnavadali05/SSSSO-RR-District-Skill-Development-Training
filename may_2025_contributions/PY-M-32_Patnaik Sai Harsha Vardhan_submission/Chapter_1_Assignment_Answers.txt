@@ -1,0 +1,110 @@
+
+Chapter 1: Introduction to Python – Assignments
+
+Basic (10 Questions)
+
+1. Who created Python and in which year?
+   Python was created by Guido van Rossum in 1989 and released in 1991.
+
+2. What are some major goals behind Python's development?
+   To create a language that's easy to read, write, and understand with simple syntax and strong support for code readability.
+
+3. Name three key applications of Python in the real world.
+   Web development, data analysis, automation (scripting).
+
+4. List five areas or domains where Python is used extensively.
+   Data Science, Web Development, Artificial Intelligence, Automation, and Cybersecurity.
+
+5. Why is Python called a "high-level" programming language?
+   Because it abstracts complex machine-level operations, allowing developers to write code that's closer to human language.
+
+6. Write any 3 features of Python that make it beginner-friendly.
+   Simple syntax, dynamic typing, and large standard library.
+
+7. What does "interpreted language" mean in Python?
+   Python code is executed line-by-line by an interpreter, not compiled into machine code beforehand.
+
+8. How is Python different from compiled languages like C++?
+   Python is interpreted and dynamically typed; C++ is compiled and statically typed.
+
+9. Give two examples of industries where Python is applied.
+   Finance (for data analysis) and Healthcare (for machine learning in diagnostics).
+
+10. Why do educational institutes prefer teaching Python first?
+    Because of its simple syntax, easy learning curve, and versatility.
+
+
+Intermediate (10 Questions)
+
+11. Compare Python with Java in terms of syntax simplicity and productivity.
+    Python uses less boilerplate code, making it easier and faster to write, while Java requires more syntax for similar tasks.
+
+12. Write short notes on Python’s role in:
+    (a) Data Science: Used for data cleaning, visualization, and machine learning using libraries like pandas and scikit-learn.
+    (b) Web Development: Used with frameworks like Django and Flask to build dynamic web applications.
+
+13. List any 4 popular Python frameworks/libraries and their use cases.
+    - Django – Web development
+    - NumPy – Scientific computing
+    - pandas – Data analysis
+    - TensorFlow – Machine learning
+
+14. What are some limitations of Python despite its popularity?
+    Slow execution speed, high memory usage, and not ideal for mobile app development.
+
+15. How does Python support rapid prototyping and development?
+    Its simplicity and dynamic typing make it easy to write and test code quickly.
+
+16. Why is Python considered a dynamically typed language?
+    Because variable types are determined at runtime, not declared beforehand.
+
+17. How do readability and indentation in Python differ from other languages?
+    Python enforces indentation to define code blocks, improving readability and consistency.
+
+18. What makes Python open source? How can you contribute to it?
+    Its source code is freely available and can be modified. You can contribute via GitHub or the Python community by submitting patches, writing documentation, or reporting bugs.
+
+19. Find and list at least 5 real-world companies that use Python and what they use it for.
+    - Google – AI and backend services
+    - Instagram – Web backend (Django)
+    - Netflix – Data analysis and recommendations
+    - Dropbox – Desktop client and backend
+    - Spotify – Data analysis and backend services
+
+20. Explain the phrase “Python fits everywhere” with examples.
+    Python is used in web apps, automation scripts, AI models, data science dashboards, and IoT devices, making it truly versatile.
+
+
+Advanced (10 Questions)
+
+21. How has Python evolved from version 1.0 to version 3.x?
+    Python 1.0 introduced basic features. Python 2.x added more built-in functions and Unicode support. Python 3.x broke backward compatibility but improved string handling, introduced print() as a function, type hints, and better library support.
+
+22. Describe how Python supports multiple programming paradigms.
+    It supports procedural, object-oriented, and functional programming, making it flexible for different coding styles.
+
+23. Compare Python with another modern language (e.g., Go or Rust) in terms of performance and community.
+    Rust and Go are faster due to compilation and static typing, but Python has a larger community and richer ecosystem for data science and automation.
+
+24. Explain how Python is used in Artificial Intelligence and Machine Learning.
+    Python has powerful libraries like TensorFlow, PyTorch, and scikit-learn for building AI/ML models with easy syntax and community support.
+
+25. How does Python’s philosophy (Zen of Python) influence its design?
+    The Zen of Python promotes readability, simplicity, and explicitness, influencing the language's clean syntax and community practices.
+
+26. How is Python used in embedded systems and IoT despite being interpreted?
+    MicroPython and CircuitPython allow Python code to run on microcontrollers like Arduino and Raspberry Pi.
+
+27. Explain how Python became the dominant language in the data science ecosystem.
+    Due to powerful libraries (pandas, NumPy, matplotlib), ease of use, strong community, and seamless integration with tools like Jupyter.
+
+28. List and describe 3 open-source Python projects and what they solve.
+    - Django – High-level web framework for rapid development.
+    - Flask – Lightweight web application framework.
+    - Ansible – IT automation and configuration management tool.
+
+29. Discuss the trade-off between Python’s flexibility and its execution speed.
+    Python is easy to write and flexible but often slower than compiled languages. It's not ideal for speed-critical applications.
+
+30. Prepare a presentation or infographic summarizing Python’s journey, strengths, and future.
+    (To be created using tools like PowerPoint, Canva, or Google Slides — include history, key features, major use cases, and upcoming features like Python 3.12 enhancements.)

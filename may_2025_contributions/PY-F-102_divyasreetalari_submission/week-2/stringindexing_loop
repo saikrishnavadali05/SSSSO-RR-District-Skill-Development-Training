@@ -1,0 +1,3 @@
+string = "python"
+for i in range(len(string)):
+    print(f"Character at index {i} is {string[i]}")

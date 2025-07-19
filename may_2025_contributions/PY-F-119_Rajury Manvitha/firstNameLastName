@@ -1,0 +1,127 @@
+"""Create two variables, first_name and last_name, assign your own name to them, then print the full name on one line."""
+first_name="Rajury"
+last_name="Manvitha"
+print(F"Name: {first_name} {last_name}")
+
+"""Ask the user for two whole numbers and print their sum, difference, product, and quotient."""
+num1=int(input("Enter first number"))
+num2=int(input("Enter second number"))
+print(f"sum:{num1+num2} diff:{num1-num2} product:{num1*num2} quotient:{num1/num2}")
+
+"""Start with count = 0. Increment it by 1 three times using +=, then print the final value."""
+count=0
+print(f"Initial count: {count}")
+count+=1
+count+=1        
+count+=1
+print(f"After increment count: {count}")
+
+""" Input an age and print True if the person is at least 18, otherwise False."""
+age=int(input("Enter your age"))
+print(f"Is the person at least 18 years old? {age>=18}")
+""" using if else statement"""
+if age>=18:
+    print("True")
+else:
+    print("False")
+
+"""Read two Boolean values (e.g., True/False) and print the results of and, or, and not on them."""
+bool1=(input("Enter first boolean value"))
+bool2=(input("Enter second boolean value"))
+if bool1=="True":
+    bool1=True
+else:
+    bool1=False
+print(f"and: {bool1 and bool2}")
+print(f"or: {bool1 or bool2}")
+print(f"not: {not bool1}") 
+""" using if else statement"""
+if bool1 and bool2:
+    print("True")
+else:
+    print("False")
+if bool1 or bool2:
+        print("True")
+else:
+        print("False")  
+if bool1:
+    print("False")
+else:
+    print("True") 
+
+"""Store 0, '', and 42 in a list. Loop through the list and print whether each element is truthy or falsy."""
+list1=[0,'',42]
+for i in list1:
+    if i:
+        print(f"{i} is truthy")
+    else:
+        print(f"{i} is falsy")
+
+"""Given two integers (e.g., 5 and 3), print their bitwise AND (&) and OR (`""" 
+a = 27
+b = 15
+print(f"bitwise and of {a}, {b} is  {a & b}")
+print(f"bitwise or of {a}, {b} is  {a | b}")   
+
+"""Create two identical lists a = [1,2] and b = [1,2]. Print the results of a is b and a == b."""
+a = [1,2]
+b = [1,2]
+print(f"a: {a} b: {b} a==b:{a==b}")
+
+"""Ask the user for a letter and print whether that letter appears in the word "python"."""
+ch=(input("Enter a letter"))
+if ch in "python":
+    print(f"{ch} is present in python")
+else:
+    print(f"{ch} is not present in python")
+
+"""Prompt for a user’s favorite color and then greet them: “Your favorite color is …”."""
+color=(input("Enter your favorite color"))
+print(f"Your favorite color is {color}")
+
+"""Print the numbers 1 to 5 on one line separated by commas using a single print() call."""
+print(f"{1},{2},{3},{4},{5}")
+
+"""Write a function square(n) that returns n*n and call it for numbers 1–5, printing each result."""
+def square(n):
+    return n*n
+for i in range(1,6):
+    print(f"square of {i} is {square(i)}")
+
+"""Use a for loop to print a 5-row left-aligned triangle of * characters (1 on first row, 5 on last)."""
+for i in range(1,6):
+    print("*"*i)
+
+"""Calculate (3 + 4 + 5 + 6 + 7) on multiple lines using \ for continuation, then print the total."""
+total = 3 + \
+    4 + \
+    5 + \
+    6 + \
+    7
+print(f"Total: {total}")    
+
+"""Ask for an integer and print its square using the exponent operator **."""
+num = int(input("Enter an integer"))
+print(f"Square of {num} is {num**2}")
+
+"""Read a temperature in Celsius (float) and convert it to Fahrenheit using the formula F = C*9/5 + 32."""
+c= float(input("Enter temperature in Celsius"))
+print(f"Temperature in Fahrenheit is {(c*9/5)+32}")
+
+"""Input three numbers and print True if they are in strictly increasing order (e.g., 2 < 5 < 9)."""
+i1= int(input("Enter first number"))
+i2= int(input("Enter second number"))   
+i3= int(input("Enter third number"))
+if i1<i2<i3:
+    print("True")
+else:
+    print("False")
+
+"""Ask for an amount of rupees less than 100 and show how many ₹50 notes and ₹10 coins are needed to make that amount 
+(use // and %)."""
+amount= int(input("Enter amount in rupees less than 100"))
+if amount<100:
+    fifty= amount//50
+    ten= (amount%50)//10
+    print(f"₹50 notes: {fifty} ₹10 coins: {ten}")
+

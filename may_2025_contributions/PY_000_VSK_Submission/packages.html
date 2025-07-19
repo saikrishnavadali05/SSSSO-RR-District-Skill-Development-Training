@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Packages</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Python Packages</h1>
+  </header>
+  <div class="container">
+
+    <p>A <strong>package</strong> in Python is a way of organizing related modules into a single directory hierarchy. A package contains a special <code class="language-python">__init__.py</code> file to mark the directory as a package.</p>
+
+    <h2>Why Use Packages?</h2>
+    <ul>
+      <li>They help organize code logically.</li>
+      <li>They promote code reuse and modularity.</li>
+      <li>They make large projects manageable.</li>
+    </ul>
+
+    <h2>Creating a Package</h2>
+    <pre><code class="language-python">my_package/
+├── __init__.py
+├── module1.py
+└── module2.py</code></pre>
+
+    <h2>Example 1: Importing from a Package</h2>
+    <pre><code class="language-python">from my_package import module1
+module1.function1()</code></pre>
+
+    <h2>Example 2: Importing Specific Function</h2>
+    <pre><code class="language-python">from my_package.module2 import function2
+function2()</code></pre>
+
+    <h2>Example 3: Using Aliases</h2>
+    <pre><code class="language-python">import my_package.module1 as m1
+m1.function1()</code></pre>
+
+    <h2>Example 4: Nested Packages</h2>
+    <pre><code class="language-python">analytics/
+├── __init__.py
+├── statistics/
+│   ├── __init__.py
+│   └── mean.py</code></pre>
+    <p>Usage:</p>
+    <pre><code class="language-python">from analytics.statistics import mean</code></pre>
+
+    <h2>Example 5: Exploring a Package</h2>
+    <pre><code class="language-python">import my_package
+print(dir(my_package))</code></pre>
+
+    <p>Packages provide structure and clarity to Python applications, especially as they scale.</p>
+
+    <a href="ch9overview.html" class="nav-link">Back: Overview</a>
+    <a href="assignment.html" class="nav-link">Next: Assignment</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+
+</body>
+</html>

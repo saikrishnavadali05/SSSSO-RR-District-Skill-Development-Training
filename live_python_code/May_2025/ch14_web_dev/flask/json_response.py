@@ -1,0 +1,32 @@
+from flask import request
+from flask import Flask
+from flask import jsonify
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, Flask!"
+
+@app.route('/user/<username>')
+def show_user(username):
+    return f"User: {username}"
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        return f"Logged in as {username}"
+    return '''
+        <form method="post">
+            Username: <input type="text" name="username">
+            <input type="submit" value="Login">
+        </form>
+    '''
+
+@app.route('/api/data')
+def api_data():
+    return jsonify({"name": "Flask", "version": "2.x"})
+
+if __name__ == '__main__':
+    app.run(debug=True)
