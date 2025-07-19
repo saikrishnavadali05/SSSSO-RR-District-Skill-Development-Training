@@ -1,41 +1,64 @@
+from flask import Flask, request, redirect, flash, render_template_string
 import os
-import shutil
 from pathlib import Path
+import shutil
+import secrets
+
+app = Flask(__name__)
+app.secret_key = secrets.token_hex(16)
 
 EXTENSION_MAP = {
-    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg"],
-    "Docs": [".pdf", ".docx", ".doc", ".txt", ".xlsx", ".pptx", ".csv"],
-    "Videos": [".mp4", ".mkv", ".avi", ".mov"],
-    "Audio": [".mp3", ".wav", ".aac"],
-    "Archives": [".zip", ".rar", ".tar", ".gz", ".7z"],
-    "Scripts": [".py", ".js", ".html", ".css", ".sh", ".bat"],
-    "Executables": [".exe", ".msi", ".apk"],
-    "Others": []
+    'Images': ['.jpg', '.jpeg', '.png', '.gif', '.bmp'],
+    'Docs': ['.pdf', '.doc', '.docx', '.txt', '.xls', '.xlsx', '.ppt', '.pptx'],
+    'Videos': ['.mp4', '.mkv', '.mov', '.avi'],
+    'Music': ['.mp3', '.wav', '.aac', '.flac'],
+    'Archives': ['.zip', '.rar', '.tar', '.gz', '.7z'],
+    'Scripts': ['.py', '.js', '.html', '.css', '.cpp', '.java', '.c'],
+    'Others': []
 }
 
-EXTENSION_LOOKUP = {ext: category for category, exts in EXTENSION_MAP.items() for ext in exts}
+def get_category(extension):
+    for category, extensions in EXTENSION_MAP.items():
+        if extension.lower() in extensions:
+            return category
+    return 'Others'
 
-def get_target_folder(extension: str) -> str:
-    return EXTENSION_LOOKUP.get(extension.lower(), "Others")
-
-def organize_directory(directory: Path):
-    if not directory.is_dir():
-        print(f"{directory} is not a valid directory.")
-        return
-    for entry in os.scandir(directory):
+def organize_directory(path):
+    base_path = Path(path)
+    for entry in os.scandir(base_path):
         if entry.is_file():
-            file_path = Path(entry.path)
+            file_path = Path(entry)
             ext = file_path.suffix
-            target_folder = get_target_folder(ext)
-            target_path = directory / target_folder
-            try:
-                target_path.mkdir(exist_ok=True)
-                shutil.move(str(file_path), target_path / file_path.name)
-                print(f"Moved: {file_path.name} → {target_folder}/")
-            except Exception as e:
-                print(f"Error moving {file_path.name}: {e}")
+            category = get_category(ext)
+            target_folder = base_path / category
+            target_folder.mkdir(exist_ok=True)
+            target_path = target_folder / file_path.name
+            shutil.move(str(file_path), str(target_path))
 
-if _name_ == "_main_":
-    target_dir = Path.cwd()
-    print(f"Organizing files in: {target_dir}")
-    organize_directory(target_dir)
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Organizer</title>
+</head>
+<body>
+    <h1>Organize Files</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: green;">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <label for="folder">Enter folder path:</label><br>
+        <input type="text" id="folder" name="folder" style="width: 400px;" required><br><br>
+        <button type="submit">Organize</button>
+    </form>
+</body>
+</html>
+"""
