@@ -1,0 +1,41 @@
+import os
+import shutil
+from pathlib import Path
+
+EXTENSION_MAP = {
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg"],
+    "Docs": [".pdf", ".docx", ".doc", ".txt", ".xlsx", ".pptx", ".csv"],
+    "Videos": [".mp4", ".mkv", ".avi", ".mov"],
+    "Audio": [".mp3", ".wav", ".aac"],
+    "Archives": [".zip", ".rar", ".tar", ".gz", ".7z"],
+    "Scripts": [".py", ".js", ".html", ".css", ".sh", ".bat"],
+    "Executables": [".exe", ".msi", ".apk"],
+    "Others": []
+}
+
+EXTENSION_LOOKUP = {ext: category for category, exts in EXTENSION_MAP.items() for ext in exts}
+
+def get_target_folder(extension: str) -> str:
+    return EXTENSION_LOOKUP.get(extension.lower(), "Others")
+
+def organize_directory(directory: Path):
+    if not directory.is_dir():
+        print(f"{directory} is not a valid directory.")
+        return
+    for entry in os.scandir(directory):
+        if entry.is_file():
+            file_path = Path(entry.path)
+            ext = file_path.suffix
+            target_folder = get_target_folder(ext)
+            target_path = directory / target_folder
+            try:
+                target_path.mkdir(exist_ok=True)
+                shutil.move(str(file_path), target_path / file_path.name)
+                print(f"Moved: {file_path.name} → {target_folder}/")
+            except Exception as e:
+                print(f"Error moving {file_path.name}: {e}")
+
+if _name_ == "_main_":
+    target_dir = Path.cwd()
+    print(f"Organizing files in: {target_dir}")
+    organize_directory(target_dir)
