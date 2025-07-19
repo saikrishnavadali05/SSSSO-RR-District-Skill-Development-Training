@@ -1,3 +1,4 @@
+#Number Guessing Game without flask
 import random     #random module generates random numbers
 
 print("🎮 Welcome to the Number Guessing Game!")
