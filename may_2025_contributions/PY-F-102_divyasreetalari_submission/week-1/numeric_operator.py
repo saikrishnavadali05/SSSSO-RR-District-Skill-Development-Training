@@ -9,6 +9,4 @@ def numeric_operator():
     print ("difference = ", difference)
     print ("product = ", product)
     print ("quotient = ", quotient)
-    
-    
-    numeric_operator()
+numeric_operator()
