@@ -4,3 +4,4 @@ try:
   1 / 0
 except Exception as e:
   print("Error:", traceback.format_exc())
+  print(e)
