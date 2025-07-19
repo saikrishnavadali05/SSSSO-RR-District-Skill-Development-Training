@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Toss Simulator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN for plotting results -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top to prevent content overflow */
+            min-height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 700px; /* Increased max-width */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .input-group label {
+            font-weight: 600;
+            color: #334155; /* Slate-700 */
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .input-group input[type="number"],
+        .input-group input[type="range"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #cbd5e1; /* Slate-300 */
+            border-radius: 0.75rem; /* Rounded corners for inputs */
+            font-size: 1rem;
+            color: #475569; /* Slate-600 */
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .input-group input[type="number"]:focus,
+        .input-group input[type="range"]:focus {
+            outline: none;
+            border-color: #6366f1; /* Indigo-500 */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 0.375rem; /* Rounded corners for checkboxes */
+            border: 1px solid #cbd5e1;
+            accent-color: #6366f1; /* Indigo-500 */
+        }
+        .btn {
+            padding: 1rem 1.5rem;
+            border-radius: 1rem; /* More rounded buttons */
+            font-weight: 700;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Gradient background */
+            color: #ffffff;
+            border: none;
+        }
+        .btn:hover {
+            background: linear-gradient(to right, #4f46e5, #7c3aed); /* Darker gradient on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .output-area {
+            background-color: #f8fafc; /* Lightest blue-gray */
+            border: 1px solid #e2e8f0; /* Slate-200 */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            min-height: 150px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap; /* Preserve whitespace and wrap text */
+            font-family: 'monospace';
+            font-size: 0.9rem;
+            color: #334155;
+        }
+        .chart-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .chart-item {
+            flex: 1 1 calc(50% - 0.75rem); /* Two charts per row on larger screens */
+            min-width: 280px; /* Minimum width for charts */
+            background-color: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content input[type="text"] {
+            width: calc(100% - 2rem);
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            color: #475569;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .modal-buttons button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: none;
+        }
+
+        .modal-buttons .confirm-btn {
+            background-color: #6366f1;
+            color: white;
+        }
+
+        .modal-buttons .confirm-btn:hover {
+            background-color: #4f46e5;
+            transform: translateY(-1px);
+        }
+
+        .modal-buttons .cancel-btn {
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+
+        .modal-buttons .cancel-btn:hover {
+            background-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+            .btn {
+                font-size: 1rem;
+                padding: 0.8rem 1.2rem;
+            }
+            .output-area {
+                padding: 1rem;
+            }
+            .chart-item {
+                flex: 1 1 100%; /* Single chart per row on small screens */
+            }
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container">
+        <h1 class="text-3xl font-bold text-center text-indigo-700">🎉 Coin Toss Simulator 🎉</h1>
+
+        <div class="input-group">
+            <label for="tosses">Number of tosses:</label>
+            <input type="number" id="tosses" value="10" min="1" class="w-full">
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="biasCheckbox" onchange="toggleBias()">
+            <label for="biasCheckbox">Use Biased Coin</label>
+        </div>
+
+        <div class="input-group">
+            <label for="headsProbability" id="headsProbLabel">Heads Probability: 0.50</label>
+            <input type="range" id="headsProbability" min="0.0" max="1.0" step="0.01" value="0.5" disabled oninput="updateHeadsProbLabel(this.value)">
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="gameModeCheckbox">
+            <label for="gameModeCheckbox">Enable Guessing Game Mode</label>
+        </div>
+
+        <button class="btn" onclick="startSimulation()">Start Simulation</button>
+
+        <div class="output-area" id="outputArea">
+            <!-- Simulation results will be displayed here -->
+        </div>
+
+        <div class="chart-container" id="chartContainer" style="display: none;">
+            <div class="chart-item">
+                <canvas id="resultsChart"></canvas>
+            </div>
+            <div class="chart-item">
+                <canvas id="biasChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Modal for Guessing Game -->
+    <div id="guessModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalPrompt"></h3>
+            <input type="text" id="guessInput" placeholder="Type 'Heads' or 'Tails'">
+            <div class="modal-buttons">
+                <button class="confirm-btn" onclick="submitGuess()">Submit</button>
+                <button class="cancel-btn" onclick="cancelGuess()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let headsProb = 0.5;
+        let tailsProb = 0.5;
+        let currentToss = 0;
+        let totalTosses = 0;
+        let gameScore = 0;
+        let resolveGuessPromise; // To hold the resolve function of the promise
+
+        const tossEntry = document.getElementById('tosses');
+        const biasCheckbox = document.getElementById('biasCheckbox');
+        const headsScale = document.getElementById('headsProbability');
+        const headsProbLabel = document.getElementById('headsProbLabel');
+        const gameModeCheckbox = document.getElementById('gameModeCheckbox');
+        const outputArea = document.getElementById('outputArea');
+        const chartContainer = document.getElementById('chartContainer');
+        const resultsChartCanvas = document.getElementById('resultsChart');
+        const biasChartCanvas = document.getElementById('biasChart');
+
+        let resultsChartInstance = null;
+        let biasChartInstance = null;
+
+        // Modal elements
+        const guessModal = document.getElementById('guessModal');
+        const modalPrompt = document.getElementById('modalPrompt');
+        const guessInput = document.getElementById('guessInput');
+
+        function toggleBias() {
+            headsScale.disabled = !biasCheckbox.checked;
+            if (!biasCheckbox.checked) {
+                headsScale.value = 0.5;
+                updateHeadsProbLabel(0.5);
+            }
+        }
+
+        function updateHeadsProbLabel(value) {
+            headsProbLabel.textContent = `Heads Probability: ${parseFloat(value).toFixed(2)}`;
+        }
+
+        async function startSimulation() {
+            outputArea.innerHTML = ''; // Clear previous output
+            chartContainer.style.display = 'none'; // Hide charts initially
+
+            try {
+                totalTosses = parseInt(tossEntry.value);
+                if (isNaN(totalTosses) || totalTosses <= 0) {
+                    showMessage("Input Error", "Please enter a valid positive integer for tosses.");
+                    return;
+                }
+            } catch (e) {
+                showMessage("Input Error", "Please enter a valid positive integer for tosses.");
+                return;
+            }
+
+            if (biasCheckbox.checked) {
+                headsProb = parseFloat(headsScale.value);
+                tailsProb = 1 - headsProb;
+            } else {
+                headsProb = 0.5;
+                tailsProb = 0.5;
+            }
+
+            if (gameModeCheckbox.checked) {
+                await playGameMode();
+            } else {
+                // Call backend for simulation
+                try {
+                    const response = await fetch('/simulate_toss', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            num_tosses: totalTosses,
+                            heads_prob: headsProb
+                        }),
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        showMessage("Simulation Error", errorData.error || "An error occurred during simulation.");
+                        return;
+                    }
+
+                    const data = await response.json();
+                    const heads = data.heads;
+                    const tails = data.tails;
+                    const headsPercent = data.heads_percent;
+                    const tailsPercent = data.tails_percent;
+                    const tossResults = data.toss_results; // Individual toss results from backend
+
+                    // Display individual results if available (can be verbose for many tosses)
+                    if (tossResults && tossResults.length <= 100) { // Limit display for very large simulations
+                        tossResults.forEach((toss, index) => {
+                            outputArea.innerHTML += `Toss ${index + 1}: ${toss}\n`;
+                        });
+                    } else if (tossResults) {
+                        outputArea.innerHTML += `Displaying summary for ${totalTosses} tosses...\n`;
+                    }
+
+
+                    outputArea.innerHTML += `\n--- Summary ---\nHeads: ${heads}\nTails: ${tails}\n`;
+                    outputArea.innerHTML += `Heads %: ${headsPercent}%\n`;
+                    outputArea.innerHTML += `Tails %: ${tailsPercent}%\n`;
+
+                    plotResults(heads, tails);
+
+                } catch (error) {
+                    console.error('Error during simulation fetch:', error);
+                    showMessage("Network Error", "Could not connect to the simulation server. Please ensure the Flask backend is running.");
+                }
+            }
+        }
+
+        async function showGuessModal(promptText) {
+            return new Promise((resolve) => {
+                modalPrompt.textContent = promptText;
+                guessInput.value = ''; // Clear previous input
+                guessModal.style.display = 'flex'; // Show modal
+                guessInput.focus();
+                resolveGuessPromise = resolve; // Store resolve function
+            });
+        }
+
+        function submitGuess() {
+            const guess = guessInput.value.trim().toLowerCase();
+            if (guess === 'heads' || guess === 'tails') {
+                guessModal.style.display = 'none'; // Hide modal
+                resolveGuessPromise(guess);
+            } else {
+                showMessage("Invalid Guess", "Please type 'Heads' or 'Tails'.");
+            }
+        }
+
+        function cancelGuess() {
+            guessModal.style.display = 'none'; // Hide modal
+            resolveGuessPromise(null); // Resolve with null if cancelled
+        }
+
+        async function playGameMode() {
+            gameScore = 0;
+            for (currentToss = 1; currentToss <= totalTosses; currentToss++) {
+                const userGuess = await showGuessModal(`Toss ${currentToss}: Heads or Tails?`);
+
+                if (userGuess === null) { // User cancelled the guess
+                    outputArea.innerHTML += "\nGame cancelled by user.\n";
+                    return;
+                }
+
+                const tossResult = Math.random() < headsProb ? 'heads' : 'tails';
+                outputArea.innerHTML += `Toss ${currentToss}: You guessed '${userGuess}', it was '${tossResult}'.\n`;
+
+                if (userGuess === tossResult) {
+                    gameScore++;
+                }
+            }
+            outputArea.innerHTML += `\n--- Game Over ---\nYou guessed right ${gameScore} out of ${totalTosses} tosses.\n`;
+        }
+
+        // The plotResults function remains the same as it uses the data passed to it.
+        function plotResults(heads, tails) {
+            chartContainer.style.display = 'flex'; // Show charts
+
+            // Destroy existing chart instances if they exist
+            if (resultsChartInstance) {
+                resultsChartInstance.destroy();
+            }
+            if (biasChartInstance) {
+                biasChartInstance.destroy();
+            }
+
+            // Bar chart for results
+            resultsChartInstance = new Chart(resultsChartCanvas, {
+                type: 'bar',
+                data: {
+                    labels: ['Heads', 'Tails'],
+                    datasets: [{
+                        label: 'Number of Tosses',
+                        data: [heads, tails],
+                        backgroundColor: ['#6366f1', '#8b5cf6'], // Indigo-500, Violet-500
+                        borderColor: ['#4f46e5', '#7c3aed'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Coin Toss Results',
+                            font: { size: 16, weight: 'bold' }
+                        },
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Count'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Pie chart for bias probability
+            biasChartInstance = new Chart(biasChartCanvas, {
+                type: 'pie',
+                data: {
+                    labels: ['Heads Probability', 'Tails Probability'],
+                    datasets: [{
+                        label: 'Probability',
+                        data: [headsProb, tailsProb],
+                        backgroundColor: ['#6366f1', '#8b5cf6'], // Indigo-500, Violet-500
+                        borderColor: '#ffffff',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Coin Bias Probability',
+                            font: { size: 16, weight: 'bold' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += (context.parsed * 100).toFixed(1) + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Custom message box function
+        function showMessage(title, message) {
+            const modalDiv = document.createElement('div');
+            modalDiv.className = 'modal';
+            modalDiv.innerHTML = `
+                <div class="modal-content">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">${title}</h3>
+                    <p class="text-gray-700 mb-6">${message}</p>
+                    <button class="confirm-btn" onclick="this.closest('.modal').remove()">OK</button>
+                </div>
+            `;
+            document.body.appendChild(modalDiv);
+            modalDiv.style.display = 'flex'; // Show the modal
+        }
+
+        // Event listener for Enter key in guess input
+        guessInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                submitGuess();
+            }
+        });
+
+        // Initial state setup
+        toggleBias();
+        updateHeadsProbLabel(headsScale.value);
+
+    </script>
+</body>
+</html>
+```python
+from flask import Flask, render_template, request, jsonify
+import random
+from collections import Counter # Import Counter for counting occurrences
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    """
+    Renders the main index.html page for the Coin Toss Simulator.
+    """
+    return render_template('index.html')
+
+@app.route('/simulate_toss', methods=['POST'])
+def simulate_toss():
+    """
+    Handles the coin toss simulation logic on the backend.
+    Receives num_tosses and heads_prob from the frontend, performs the simulation,
+    and returns the results as JSON.
+    """
+    data = request.get_json()
+    num_tosses = data.get('num_tosses', 10)
+    heads_prob = data.get('heads_prob', 0.5)
+
+    # Input validation
+    if not isinstance(num_tosses, int) or num_tosses <= 0:
+        return jsonify({"error": "Invalid number of tosses. Must be a positive integer."}), 400
+    if not isinstance(heads_prob, (float, int)) or not (0 <= heads_prob <= 1):
+        return jsonify({"error": "Invalid heads probability. Must be between 0 and 1."}), 400
+
+    results = []
+    # Loop to simulate multiple coin flips
+    for _ in range(num_tosses):
+        # Random selection from a list (Heads or Tails) based on probability
+        toss = random.choices(['Heads', 'Tails'], weights=[heads_prob, 1 - heads_prob])[0]
+        results.append(toss)
+
+    # Counting occurrences using collections.Counter
+    counts = Counter(results)
+    heads = counts['Heads']
+    tails = counts['Tails']
+
+    # Calculate percentages
+    heads_percent = (heads / num_tosses) * 100 if num_tosses > 0 else 0
+    tails_percent = (tails / num_tosses) * 100 if num_tosses > 0 else 0
+
+    return jsonify({
+        "heads": heads,
+        "tails": tails,
+        "heads_percent": round(heads_percent, 2),
+        "tails_percent": round(tails_percent, 2),
+        "toss_results": results # Sending individual results for display (optional, can be large)
+    })
+
+if __name__ == '__main__':
+    # Run the Flask application.
+    # debug=True allows for automatic reloading on code changes and provides a debugger.
+    app.run(debug=True)
+
