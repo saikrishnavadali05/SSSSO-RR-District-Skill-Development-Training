@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing Game</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f8ff; text-align: center; margin-top: 50px; }
+        .box { background: #fff; padding: 30px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px #ccc; }
+        input[type="number"] { padding: 10px; width: 100px; }
+        input[type="submit"], a { padding: 10px 20px; margin-top: 15px; display: inline-block; text-decoration: none; background: #28a745; color: white; border-radius: 5px; }
+        a { background: #007bff; }
+        .msg { margin-top: 20px; font-size: 18px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>🎮 Number Guessing Game</h1>
+        <p>Guess a number between 1 and 100</p>
+        <form method="POST">
+            <input type="number" name="guess" required>
+            <br><br>
+            <input type="submit" value="Submit Guess">
+        </form>
+
+        {% if message %}
+            <div class="msg">{{ message }}</div>
+        {% endif %}
+
+        <p>Attempts: {{ attempts }}</p>
+
+        {% if game_over %}
+            <a href="/restart">Play Again</a>
+        {% endif %}
+    </div>
+</body>
+</html>

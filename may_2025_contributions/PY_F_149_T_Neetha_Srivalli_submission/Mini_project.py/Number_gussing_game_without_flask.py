@@ -23,7 +23,7 @@ def guessing_game():   #Main function to run the guessing game
     low, high, max_attempts = choose_difficulty()  #Get difficulty level
 
     number_to_guess = random.randint(low, high)  #Randomly select a number to guess
-    attempts = 0    #INtially set attempts to 0
+    attempts = 0    #Initially set attempts to 0
 
     print(f"\nA number is picked between {low} and {high}.")  # Inform the user about the range
     print(f"You have {max_attempts} attempts. Good luck champ!\n")
