@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        let startTime;
+
+        function startTimer() {
+            startTime = new Date().getTime() / 1000;
+            document.getElementById("start_time").value = startTime;
+        }
+
+        function endTimer() {
+            let endTime = new Date().getTime() / 1000;
+            document.getElementById("end_time").value = endTime;
+        }
+    </script>
+</head>
+<body onload="startTimer()">
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+
+        {% if result %}
+            <p><strong>WPM:</strong> {{ wpm }}</p>
+            <p><strong>Accuracy:</strong> {{ accuracy }}%</p>
+            <a href="/">Try Again</a>
+        {% else %}
+            <p><strong>Type this sentence:</strong></p>
+            <div class="sentence">{{ original }}</div>
+
+            <form method="POST" onsubmit="endTimer()">
+                <input type="hidden" name="original" value="{{ original }}">
+                <input type="hidden" id="start_time" name="start_time">
+                <input type="hidden" id="end_time" name="end_time">
+
+                <textarea name="typed" rows="4" cols="80" placeholder="Start typing here..." required autofocus></textarea>
+                <br><br>
+                <button type="submit">Submit</button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>
