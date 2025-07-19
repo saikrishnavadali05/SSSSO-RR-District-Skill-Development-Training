@@ -1,0 +1,4 @@
+# List of packages
+
+flask
+requests
