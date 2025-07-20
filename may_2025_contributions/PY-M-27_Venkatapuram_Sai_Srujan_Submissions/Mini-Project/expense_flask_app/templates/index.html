@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expense Tracker - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <style>
+        body {
+            background-color: #f8f9fa; /* Lighter background for a modern feel */
+        }
+        #wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        #sidebar-wrapper {
+            min-width: 250px;
+            max-width: 250px;
+            background-color: #343a40; /* Dark sidebar */
+            color: white;
+            transition: all 0.3s;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        #sidebar-wrapper .sidebar-heading {
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #sidebar-wrapper .list-group {
+            width: 100%;
+        }
+        #sidebar-wrapper .list-group-item {
+            background-color: transparent;
+            color: #adb5bd;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #495057;
+            color: #ffffff;
+        }
+        #sidebar-wrapper .list-group-item.active {
+            background-color: #007bff; /* Primary color for active link */
+            color: #ffffff;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+        #page-content-wrapper {
+            flex-grow: 1;
+            padding: 30px;
+            background-color: #ffffff; /* White content background */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            margin: 20px;
+        }
+        .summary-card {
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        .summary-card .card-body {
+            padding: 20px;
+        }
+        .summary-card h5 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .summary-card p {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        .table-responsive {
+            margin-top: 30px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0,0,0,.03); /* Lighter stripe */
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <div class="sidebar-heading">💰 Expense Tracker</div>
+            <div class="list-group list-group-flush">
+                <a href="/" class="list-group-item list-group-item-action active">
+                    <i class="fas fa-chart-line me-2"></i> Dashboard
+                </a>
+                <a href="/add" class="list-group-item list-group-item-action">
+                    <i class="fas fa-plus-circle me-2"></i> Add Transaction
+                </a>
+                <a href="/report" class="list-group-item list-group-item-action">
+                    <i class="fas fa-file-alt me-2"></i> Monthly Report
+                </a>
+                <a href="/plot/trends" class="list-group-item list-group-item-action">
+                    <i class="fas fa-chart-area me-2"></i> View Trends
+                </a>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1 class="mb-4 text-center">Dashboard Overview</h1>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card text-bg-success summary-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Income</h5>
+                                <p class="card-text">₹{{ income }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-bg-danger summary-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Total Expense</h5>
+                                <p class="card-text">₹{{ expense }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-bg-info summary-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Net Balance</h5>
+                                <p class="card-text">₹{{ net }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-end mb-4">
+                    <a href="/add" class="btn btn-primary btn-lg"><i class="fas fa-plus me-2"></i> Add New Transaction</a>
+                </div>
+
+                <h4 class="mt-4 mb-3">Recent Transactions</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Description</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in data %}
+                                <tr>
+                                    <td>{{ row.Date }}</td>
+                                    <td>{{ row.Type }}</td>
+                                    <td>{{ row.Category }}</td>
+                                    <td>₹{{ row.Amount }}</td>
+                                    <td>{{ row.Description }}</td>
+                                    </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
