@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Contact</title>
+</head>
+<body>
+    <h1>Search Contact</h1>
+    <form method="post">
+        <input type="text" name="query" placeholder="Enter name to search">
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    {% if results %}
+        <ul>
+        {% for name, details in results.items() %}
+            <li><strong>{{ name }}</strong> - {{ details.phone }} - {{ details.email }}</li>
+        {% endfor %}
+        </ul>
+    {% elif request.method == 'POST' %}
+        <p>No contacts found.</p>
+    {% endif %}
+    <a href="{{ url_for('index') }}">Back</a>
+    </body>
+</html>

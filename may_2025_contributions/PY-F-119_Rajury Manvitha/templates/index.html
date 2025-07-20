@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Manager</title>
+</head>
+<body>
+    <h1>All Contacts</h1>
+    <a href="{{ url_for('add_contact') }}">Add Contact</a> |
+    <a href="{{ url_for('search_contact') }}">Search Contact</a>
+    <hr>
+    {% if contacts %}
+        <ul>
+        {% for name, details in contacts.items() %}
+            <li>
+                <strong>{{ name }}</strong> - {{ details.phone }} - {{ details.email }}
+                <a href="{{ url_for('delete_contact', name=name) }}">Delete</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No contacts found.</p>
+    {% endif %}
+</body>
+</html>

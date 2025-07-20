@@ -1,0 +1,64 @@
+from flask import Flask, render_template, request, redirect, url_for
+import json
+import os
+
+project = Flask(__name__)
+FILENAME = 'contacts.json'
+
+# Load contacts from file
+def load_contacts():
+    if not os.path.exists(FILENAME):
+        return {}
+    with open(FILENAME, 'r') as f:
+        return json.load(f)
+
+# Save contacts to file
+def save_contacts(contacts):
+    with open(FILENAME, 'w') as f:
+        json.dump(contacts, f, indent=4)
+
+# Home page: List all contacts
+@project.route('/')
+def index():
+    contacts = load_contacts()
+    return render_template('index.html', contacts=contacts)
+
+# Add new contact
+@project.route('/add', methods=['GET', 'POST'])
+def add_contact():
+    if request.method == 'POST':
+        name = request.form['name'].strip()
+        phone = request.form['phone'].strip()
+        email = request.form['email'].strip()
+
+        contacts = load_contacts()
+        if name in contacts:
+            return "Contact already exists. <a href='/'>Go back</a>"
+
+        contacts[name] = {'phone': phone, 'email': email}
+        save_contacts(contacts)
+        return redirect(url_for('index'))
+
+    return render_template('add.html')
+
+# Delete contact
+@project.route('/delete/<name>')
+def delete_contact(name):
+    contacts = load_contacts()
+    if name in contacts:
+        del contacts[name]
+        save_contacts(contacts)
+    return redirect(url_for('index'))
+
+# Search contacts
+@project.route('/search', methods=['GET', 'POST'])
+def search_contact():
+    results = {}
+    if request.method == 'POST':
+        query = request.form['query'].strip().lower()
+        contacts = load_contacts()
+        results = {name: details for name, details in contacts.items() if query in name.lower()}
+    return render_template('search.html', results=results)
+
+if __name__ == '__main__':
+    project.run(debug=True)
