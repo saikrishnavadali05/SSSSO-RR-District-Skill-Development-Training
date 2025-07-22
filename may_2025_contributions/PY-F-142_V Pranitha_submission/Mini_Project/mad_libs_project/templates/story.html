@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Mad Libs Story</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ffe0e9, #c0fdfb);
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #e91e63;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #f06292;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        a:hover {
+            background-color: #ec407a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Story:</h1>
+        <p>{{ story }}</p>
+        <a href="{{ url_for('madlibs') }}">Create Another</a>
+    </div>
+</body>
+</html>
