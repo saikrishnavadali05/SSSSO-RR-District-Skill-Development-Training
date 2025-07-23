@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🌡️ Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        .box {
+            display: inline-block;
+            padding: 30px 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+
+        input, select, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 5px;
+            width: 200px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #007acc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>🌡️ Temperature Converter</h2>
+        <form method="POST">
+            <input type="text" name="temp_input" placeholder="Enter temperature" required>
+            <br>
+            <select name="from_unit" required>
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+                <option value="Rankine">Rankine</option>
+            </select>
+            <br>
+            <select name="to_unit" required>
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+                <option value="Rankine">Rankine</option>
+            </select>
+            <br>
+            <button type="submit">Convert</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <strong>Result:</strong> {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
