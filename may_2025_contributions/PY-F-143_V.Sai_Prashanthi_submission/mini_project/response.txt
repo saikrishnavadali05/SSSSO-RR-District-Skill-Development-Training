@@ -1,0 +1,3 @@
+Question: am i going to win?
+Response: {'question': 'am i going to win?', 'answer': 'You may rely on it', 'type': 'positive'}
+
