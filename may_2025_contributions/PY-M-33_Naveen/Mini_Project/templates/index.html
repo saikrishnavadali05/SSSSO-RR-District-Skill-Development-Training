@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flashcards Library</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="container mx-auto py-12">
+    <h1 class="text-4xl font-bold text-center mb-8">Flashcards Library</h1>
+    <div class="flex justify-center space-x-4 mb-8">
+      <a href="{{ url_for('add') }}"
+         class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+         Add Flashcard
+      </a>
+    </div>
+
+    {% if cards %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for card in cards %}
+        <div class="perspective cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="relative w-full h-48 transition-transform duration-600 preserve-3d group">
+            <div class="front absolute w-full h-full backface-hidden bg-white rounded-lg shadow-md p-4 flex items-center justify-center">
+              <p class="text-xl font-semibold">{{ card.term }}</p>
+            </div>
+            <div class="back absolute w-full h-full backface-hidden bg-indigo-600 text-white rounded-lg shadow-md p-4 flex items-center justify-center rotate-y-180">
+              <p class="text-lg">{{ card.definition }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center text-gray-500">No flashcards yet. Add your first one!</p>
+    {% endif %}
+  </div>
+
+  <style>
+    .perspective { perspective: 1000px; }
+    .preserve-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .duration-600 { transition-duration: 600ms; }
+    .perspective.flipped > .group {
+      transform: rotateY(180deg);
+    }
+  </style>
+</body>
+</html>
