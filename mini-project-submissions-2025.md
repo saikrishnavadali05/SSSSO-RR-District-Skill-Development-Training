@@ -11,7 +11,7 @@
 | `Navya463`                             | ✨ To include more features and Flask-based UI, output screenshots                  |
 | `praveena`                             | ⏳ Yet to raise Pull Request                                     |
 | `Ziya`                                 | ⏳ Yet to raise Pull Request                                     |
-
+| 'Vivekanand Goud Varada'               | ✅ Completed                                                     |
 ---
 
 📌 **Legend:**
