@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Results - Professional Health Tool</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .result-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 40px;
+        }
+        .bmi-value {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+        .alert {
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            border: none;
+            font-size: 1.1rem;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        .card {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-body {
+            padding: 25px;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #f0f0f0 !important;
+        }
+        .bmi-chart {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .chart-bar {
+            height: 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .underweight { background: #17a2b8; }
+        .normal { background: #28a745; }
+        .overweight { background: #ffc107; }
+        .obese { background: #dc3545; }
+        .indicator {
+            position: absolute;
+            top: -5px;
+            width: 2px;
+            height: 30px;
+            background: #333;
+            z-index: 2;
+        }
+        .indicator::after {
+            content: "YOU";
+            position: absolute;
+            top: -25px;
+            left: -10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/"><i class="fas fa-heartbeat"></i> BMI Calculator</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="result-container">
+            <div class="text-center">
+                <h1><i class="fas fa-chart-line"></i> Your BMI Results</h1>
+                <p class="lead">Here's your complete health assessment</p>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-weight fa-3x mb-3" style="color: #667eea;"></i>
+                            <h5 class="card-title">Weight</h5>
+                            <p class="h3">{{ weight }} kg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-ruler-vertical fa-3x mb-3" style="color: #667eea;"></i>
+                            <h5 class="card-title">Height</h5>
+                            <p class="h3">{{ height }} m</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-calculator fa-3x mb-3" style="color: #667eea;"></i>
+                            <h5 class="card-title">BMI</h5>
+                            <p class="bmi-value" style="color: #667eea;">{{ bmi }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-{{ alert_type }} text-center">
+                <h2>
+                    <i class="fas fa-{{ 'check-circle' if alert_type == 'success' else 'exclamation-triangle' }}"></i>
+                    {{ category }}
+                </h2>
+                <p class="mb-0">{{ recommendation }}</p>
+            </div>
+
+            <!-- BMI Visual Chart -->
+            <div class="bmi-chart">
+                <h5><i class="fas fa-chart-bar"></i> BMI Scale Visualization</h5>
+                <p class="text-muted">See where your BMI falls on the health scale</p>
+                
+                <div class="mt-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Underweight</span>
+                        <span class="text-muted">< 18.5</span>
+                    </div>
+                    <div class="chart-bar underweight position-relative">
+                        {% if bmi < 18.5 %}
+                            <div class="indicator" style="left: {{ (bmi / 18.5) * 100 }}%;"></div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Normal weight</span>
+                        <span class="text-muted">18.5 - 24.9</span>
+                    </div>
+                    <div class="chart-bar normal position-relative">
+                        {% if bmi >= 18.5 and bmi < 25 %}
+                            <div class="indicator" style="left: {{ ((bmi - 18.5) / (24.9 - 18.5)) * 100 }}%;"></div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Overweight</span>
+                        <span class="text-muted">25 - 29.9</span>
+                    </div>
+                    <div class="chart-bar overweight position-relative">
+                        {% if bmi >= 25 and bmi < 30 %}
+                            <div class="indicator" style="left: {{ ((bmi - 25) / (29.9 - 25)) * 100 }}%;"></div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Obese</span>
+                        <span class="text-muted">≥ 30</span>
+                    </div>
+                    <div class="chart-bar obese position-relative">
+                        {% if bmi >= 30 %}
+                            <div class="indicator" style="left: {{ min(((bmi - 30) / 15) * 100, 90) }}%;"></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5><i class="fas fa-info-circle"></i> About BMI</h5>
+                            <p>BMI is a measure of body fat based on height and weight. While useful as a general guideline, it doesn't account for muscle mass, bone density, or body composition.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5><i class="fas fa-heart"></i> Health Tip</h5>
+                            <p>Remember that BMI is just one indicator of health. Regular exercise, a balanced diet, and consulting with healthcare professionals are important for overall wellness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="text-center mt-5">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-redo"></i> Calculate Again
+                </a>
+                <button onclick="window.print()" class="btn btn-outline-primary">
+                    <i class="fas fa-print"></i> Print Results
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-5 text-muted">
+                <p><small>Created by Jayasimha Valam | July 15, 2025</small></p>
+                <p><small>BMI Calculator - Professional Health Assessment Tool</small></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
