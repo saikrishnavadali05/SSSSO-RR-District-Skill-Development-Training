@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Contact</title>
+</head>
+<body>
+    <h1>Add New Contact</h1>
+    <form method="post">
+        <label>Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Phone:</label>
+        <input type="text" name="phone" required><br>
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+        <button type="submit">Add</button>
+    </form>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
