@@ -6,5 +6,9 @@
     "user2": {
         "username": "user2",
         "password": "$2b$12$0P6IAEMB9onLzvWwaDJBu.rKqwlgDXK9aXpGLR/CZ/fEfrIH0p1Tq"
+    },
+    "divya": {
+        "username": "divya",
+        "password": "$2b$12$fRUNX8oM4nVSMVIp0mRFVeZKthdvr8iul2ryEhPiUgOjkL7elWd.G"
     }
 }
