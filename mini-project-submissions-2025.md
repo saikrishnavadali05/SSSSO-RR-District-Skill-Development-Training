@@ -4,6 +4,7 @@
 |----------------------------------------|------------------------------------------------------------------|----------------------------------------------|
 | `saisrujan137`                         | ✅ Completed                                                     |                                              |
 | `Ziya`                                 | ✅ Completed                                     | https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/PY-F-127_Ziya_Samreen_submission/mini-project |
+| `nishanth`                             |✅ Completed                                                 |https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/PY-M-58_Nishanth_Thula_Submission/Mini_Project/typing_speed_tester_flask|
 | `Divyasreetalari`                      | 🖼️ To include output screenshots                                 |                                              |
 | `Patnaiksaiharshavardhan762`          | 🔧 To include Flask-based UI for deployment, output screenshots                      |                            |
 | `SaiRam-3795`                          | 🔧 To include Flask-based UI for deployment, output screenshots                      |                            |
