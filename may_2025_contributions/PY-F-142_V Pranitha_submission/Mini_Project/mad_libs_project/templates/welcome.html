@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Mad Libs</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            font-family: 'Comic Sans MS', cursive;
+            text-align: center;
+            padding: 100px;
+        }
+        h1 {
+            animation: bounce 1s infinite;
+            font-size: 48px;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        a {
+            font-size: 24px;
+            text-decoration: none;
+            background: #f06292;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Mad Libs!</h1>
+    <a href="{{ url_for('madlibs') }}">Start Game</a>
+</body>
+</html>
