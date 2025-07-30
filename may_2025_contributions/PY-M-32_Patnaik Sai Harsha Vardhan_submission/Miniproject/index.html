@@ -1,0 +1,36 @@
+#fileorganizer/templates/fileorganizer/index.html
+xml
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Organizer</title>
+</head>
+<body>
+    <h1>File Organizer</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="directory">Enter directory path to organize:</label><br>
+        <input type="text" id="directory" name="directory" size="50" value="{{ directory|default:'' }}" required>
+        <button type="submit">Organize</button>
+    </form>
+
+    {% if moved_files %}
+        <h2>Moved Files:</h2>
+        <ul>
+        {% for file in moved_files %}
+            <li>{{ file }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if errors %}
+        <h2 style="color:red;">Errors:</h2>
+        <ul>
+        {% for e in errors %}
+            <li>{{ e }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
