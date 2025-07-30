@@ -20,7 +20,7 @@ dict['c'] = 1
 dict['b'] = 2
 dict['a'] = 3
 print(dict.items())
-
+#sample output:
 # Output:
 
 # odict_items([('c', 1), ('b', 2), ('a', 3)])

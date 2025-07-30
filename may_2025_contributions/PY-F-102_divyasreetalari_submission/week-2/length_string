@@ -1,0 +1,3 @@
+text = input("enter a word:" )
+if len(text) >= 1:
+    print("length of the srting is:" + str(len(text)))

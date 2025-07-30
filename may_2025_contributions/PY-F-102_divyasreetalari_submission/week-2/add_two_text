@@ -1,0 +1,4 @@
+name = "divya"
+lastname = "sree"
+fullname= name +" " + lastname
+print("my name is {}.".format(fullname))
