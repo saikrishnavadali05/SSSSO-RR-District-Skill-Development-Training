@@ -1,3 +1,5 @@
+#Check if a substring is present in a given string using in.
+
 # Get input from the user
 main_string = input("Enter the main string: ")
 substring = input("Enter the substring to check: ")

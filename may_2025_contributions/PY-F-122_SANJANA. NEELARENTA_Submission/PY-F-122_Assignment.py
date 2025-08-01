@@ -189,3 +189,4 @@ ten_coins = remaining // 10
 # Print the result
 print("₹50 notes needed:", fifty_notes)
 print("₹10 coins needed:", ten_coins)
+

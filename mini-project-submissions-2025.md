@@ -1,5 +1,7 @@
 # 🌟 Mini Project Status - Python and Prompt Engineering - Skill Development Training
 
+> Please update your progress and raise PRs at the earliest to meet the final submission timeline.
+
 | **S.No** | **Deployer** | **Trainee**                  | **Status**                                                                                                                   | **Path**                                                                                                                                                                                                      |
 | ------- | ------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1  | 🟦 Pranitha  | `saisrujan137`               | ✅ Completed & Can be deployed                                                                                                |                                                                                                                                                                                                               |
@@ -36,3 +38,4 @@
 | 32 | 🟥 VSK       | `AllampallyKishore`          | Many projects (ChatGPT outputs), none directly deployable                                                                    | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/)                                                                         |
 | 33 | 🟥 VSK       | `KeerthiChirumamilla`        | Submitted, can be deployed (some features can be added)                                                                      | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/)                                                                         |
 | 34 | 🟥 VSK       | `Santanperumalla`            | Submitted. Can't be deployed, more features can be added                                                                     | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/)                                                                         |
+
