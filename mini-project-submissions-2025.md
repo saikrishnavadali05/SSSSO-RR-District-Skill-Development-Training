@@ -2,10 +2,6 @@
 
 > Please update your progress and raise PRs at the earliest to meet the final submission timeline.
 
-Got it ✅ — I’ll map each trainee’s **GitHub link** to the correct **folder name** from your provided list so all URLs correctly point to their submission directories.
-
-Here’s the **fixed table**:
-
 | **S.No** | **Deployer** | **Trainee**                  | **Status**                                                  | **Path**                                                                                                                                                                               |
 | -------- | ------------ | ---------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1        | 🟦 Pranitha  | `saisrujan137`               | ✅ Completed & Can be deployed                               | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/PY-M-27_Venkatapuram_Sai_Srujan_Submissions)                              |
