@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result - Typing Speed Tester</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f9fafb; }
+        .result { font-size: 18px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Your Typing Test Result</h2>
+    <div class="result">
+        <p>Time Taken: {{ time_taken }} seconds</p>
+        <p>Words Per Minute (WPM): {{ wpm }}</p>
+        <p>Accuracy: {{ accuracy }}%</p>
+    </div>
+    <a href="{{ url_for('index') }}">Try Again</a>
+</body>
+</html>

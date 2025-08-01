@@ -1,0 +1,25 @@
+<!-- Frontend for the quiz -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trivia Quiz</title>
+</head>
+<body>
+    <h1>Trivia Quiz</h1>
+    <div id="quiz-container"></div>
+
+    <script>
+        fetch("/api/quiz")
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById("quiz-container");
+            data.forEach((q, i) => {
+                const div = document.createElement("div");
+                div.innerHTML = `<p>Q${i+1}: ${q.question}</p>` +
+                    q.options.map(opt => `<label><input type="radio" name="q${i}">${opt}</label><br>`).join("");
+                container.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>

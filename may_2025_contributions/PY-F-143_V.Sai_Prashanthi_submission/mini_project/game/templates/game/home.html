@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magic 8 Ball Game</title>
+</head>
+<body>
+    <h2>Om Sai Ram 🙏</h2>
+    <h3>Welcome to the Magic 8 Ball Game 🎱</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Type your Question:</label><br>
+        <input type="text" name="question" required><br><br>
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if response %}
+        <h4>Question: {{ response.question }}</h4>
+        <h4>Answer: {{ response.answer }} ({{ response.type }})</h4>
+    {% endif %}
+
+    {% if history %}
+        <h4>Rolling History (last 5):</h4>
+        <ul>
+            {% for q, a in history %}
+                <li><b>Q:</b> {{ q }} — <b>A:</b> {{ a }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if unique_questions %}
+        <h4>Unique Questions:</h4>
+        <ul>
+            {% for q in unique_questions %}
+                <li>{{ q }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
