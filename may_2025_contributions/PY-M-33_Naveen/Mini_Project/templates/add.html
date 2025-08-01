@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Flashcard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-12">
+  <div class="max-w-lg mx-auto bg-white p-8 rounded shadow-md">
+    <h1 class="text-3xl font-bold mb-6">Add a New Flashcard</h1>
+    <form method="post" class="space-y-4">
+      <div>
+        <label class="block text-lg font-medium">Term</label>
+        <input name="term" required class="w-full mt-1 px-3 py-2 border rounded focus:outline-none focus:ring" />
+      </div>
+      <div>
+        <label class="block text-lg font-medium">Definition</label>
+        <textarea name="definition" rows="4" required class="w-full mt-1 px-3 py-2 border rounded focus:outline-none focus:ring"></textarea>
+      </div>
+      <button type="submit" class="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600">Add Card</button>
+    </form>
+    <p class="mt-4 text-center">
+      <a href="{{ url_for('index') }}" class="text-blue-500 hover:underline">← Back to Library</a>
+    </p>
+  </div>
+</body>
+</html>
