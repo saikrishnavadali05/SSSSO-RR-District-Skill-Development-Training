@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - Professional Health Tool</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 40px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+        .form-control {
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 15px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        .bmi-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #667eea;
+        }
+        .bmi-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        .nav-link:hover {
+            color: #f0f0f0 !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-heartbeat"></i> BMI Calculator</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-container">
+            <div class="header">
+                <h1><i class="fas fa-calculator"></i> BMI Calculator</h1>
+                <p class="lead">Calculate your Body Mass Index and understand your health status</p>
+            </div>
+
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- BMI Calculator Form -->
+            <form method="POST" action="/calculate">
+                <div class="mb-4">
+                    <label for="weight" class="form-label">
+                        <i class="fas fa-weight"></i> Weight (kg)
+                    </label>
+                    <input type="number" class="form-control" id="weight" name="weight" 
+                           step="0.1" min="1" max="500" required 
+                           placeholder="Enter your weight in kilograms">
+                </div>
+                
+                <div class="mb-4">
+                    <label for="height" class="form-label">
+                        <i class="fas fa-ruler-vertical"></i> Height (m)
+                    </label>
+                    <input type="number" class="form-control" id="height" name="height" 
+                           step="0.01" min="0.5" max="3" required 
+                           placeholder="Enter your height in meters (e.g., 1.75)">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-calculator"></i> Calculate BMI
+                </button>
+            </form>
+
+            <!-- BMI Information -->
+            <div class="bmi-info">
+                <h5><i class="fas fa-info-circle"></i> BMI Categories</h5>
+                <div class="bmi-categories">
+                    <div class="category-card">
+                        <div style="color: #17a2b8; font-weight: 600;">Underweight</div>
+                        <div>< 18.5</div>
+                    </div>
+                    <div class="category-card">
+                        <div style="color: #28a745; font-weight: 600;">Normal</div>
+                        <div>18.5 - 24.9</div>
+                    </div>
+                    <div class="category-card">
+                        <div style="color: #ffc107; font-weight: 600;">Overweight</div>
+                        <div>25 - 29.9</div>
+                    </div>
+                    <div class="category-card">
+                        <div style="color: #dc3545; font-weight: 600;">Obese</div>
+                        <div>≥ 30</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Examples -->
+            <div class="mt-4">
+                <h6><i class="fas fa-lightbulb"></i> Quick Examples:</h6>
+                <small class="text-muted">
+                    • 5'7" (5 feet 7 inches) = 1.70 meters<br>
+                    • 6'0" (6 feet) = 1.83 meters<br>
+                    • 5'4" (5 feet 4 inches) = 1.63 meters
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

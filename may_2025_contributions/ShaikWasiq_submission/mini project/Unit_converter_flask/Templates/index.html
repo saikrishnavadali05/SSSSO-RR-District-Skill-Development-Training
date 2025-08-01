@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        form { margin-top: 20px; }
+        label, select, input { display: block; margin-bottom: 10px; }
+        .result { font-weight: bold; margin-top: 20px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>🔄 Unit Converter</h1>
+    <form method="POST">
+        <label for="conversion">Choose conversion:</label>
+        <select name="conversion" id="conversion" required>
+            <option value="km_miles">Kilometers to Miles</option>
+            <option value="miles_km">Miles to Kilometers</option>
+            <option value="kg_pounds">Kilograms to Pounds</option>
+            <option value="pounds_kg">Pounds to Kilograms</option>
+        </select>
+
+        <label for="value">Enter value:</label>
+        <input type="text" name="value" id="value" required>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if result %}
+    <p class="result">{{ result }}</p>
+    {% endif %}
+
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

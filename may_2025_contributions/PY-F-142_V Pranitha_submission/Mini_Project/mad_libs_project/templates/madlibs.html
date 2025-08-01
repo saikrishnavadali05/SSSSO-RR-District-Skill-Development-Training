@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mad Libs Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fce4ec;
+            text-align: center;
+            padding: 30px;
+        }
+        form {
+            display: inline-block;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fill in the Blanks!</h1>
+    
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    
+   <form method="POST">
+    <input name="name" placeholder="Name" required><br>
+    <input name="animal" placeholder="Animal" required><br>
+    <input name="food" placeholder="Food" required><br>
+    <input name="object" placeholder="Object" required><br>
+    <input name="place" placeholder="Place" required><br>
+    <input name="vehicle" placeholder="Vehicle" required><br>
+    <input name="plural_noun" placeholder="Plural noun" required><br>
+    <input name="exclamation" placeholder="Exclamation" required><br>
+    <input name="silly_dance" placeholder="Silly Dance" required><br>
+    <button type="submit">Generate Story</button>
+</form>
+
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}
+
+    </form>
+</body>
+</html>

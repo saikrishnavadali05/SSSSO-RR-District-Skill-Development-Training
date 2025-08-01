@@ -1,0 +1,321 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic 8 Ball Game</title>
+    <style>
+        body {
+            background-color: #fffbea;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            color: #333;
+        }
+        h2 {
+            color: #4b0082;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4b0082;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #360061;
+        }
+        .section {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ask the Magic 8 Ball a Question</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="question" required placeholder="Type your question here">
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if response %}
+    <div class="section">
+        <h3>Answer: {{ response.answer }}</h3>
+        <p>Type: {{ response.type }}</p>
+    </div>
+    {% endif %}
+
+    {% if history %}
+    <div class="section">
+        <h4>Rolling History (last 5):</h4>
+        <ul>
+            {% for q, a in history %}
+                <li><b>Q:</b> {{ q }} — <b>A:</b> {{ a }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if all_history %}
+    <div class="section">
+        <h4>All Questions Asked:</h4>
+        <ul>
+            {% for q in all_history %}
+                <li>{{ q }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic 8 Ball Game 🎱</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom right, #fceabb, #f8b500);
+            font-family: 'Segoe UI', sans-serif;
+            padding: 50px 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        h2 {
+            text-align: center;
+            color: #4b0082;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            padding: 12px;
+            width: 70%;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #4b0082;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #360061;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #4b0082;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .section-title {
+            margin-top: 30px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Ask the Magic 8 Ball a Question</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="question" required placeholder="Type your question here...">
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if response %}
+        <div class="card">
+            <h3>Answer:</h3>
+            <p><strong>{{ response.answer }}</strong> ({{ response.type }})</p>
+        </div>
+        {% endif %}
+
+        {% if history %}
+        <div class="card">
+            <h3 class="section-title">Rolling History (last 5):</h3>
+            <ul>
+                {% for q, a in history %}
+                    <li><b>Q:</b> {{ q }} — <b>A:</b> {{ a }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if all_history %}
+        <div class="card">
+            <h3 class="section-title">All Questions Asked:</h3>
+            <ul>
+                {% for q in all_history %}
+                    <li>{{ q }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic 8 Ball Game 🎱</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            font-family: 'Segoe UI', sans-serif;
+            padding: 50px 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: scale(1.01);
+        }
+        h2 {
+            text-align: center;
+            color: #4b0082;
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        input[type="text"] {
+            padding: 12px;
+            width: 70%;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            transition: 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #4b0082;
+            outline: none;
+        }
+        button {
+            padding: 12px 22px;
+            background-color: #4b0082;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #360061;
+        }
+        .card {
+            background-color: #f5f5ff;
+            border-left: 6px solid #4b0082;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            color: #4b0082;
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .section-title {
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #4b0082;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎱 Ask the Magic 8 Ball a Question</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="question" required placeholder="Type your question here...">
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if response %}
+        <div class="card">
+            <h3>Answer:</h3>
+            <p><strong>{{ response.answer }}</strong> ({{ response.type }})</p>
+        </div>
+        {% endif %}
+
+        {% if history %}
+        <div class="card">
+            <h3 class="section-title">Rolling History (Last 5 Questions):</h3>
+            <ul>
+                {% for q, a in history %}
+                    <li><b>Q:</b> {{ q }} — <b>A:</b> {{ a }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if all_history %}
+        <div class="card">
+            <h3 class="section-title">All Questions Asked So Far:</h3>
+            <ul>
+                {% for q in all_history %}
+                    <li>{{ q }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
