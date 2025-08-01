@@ -1,3 +1,5 @@
+#Slice a string to get every second character from index 1 to 10.
+
 # Get input from the user
 input_string = input("Enter a string: ")
 

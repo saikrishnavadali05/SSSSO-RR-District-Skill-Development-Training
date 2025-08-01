@@ -1,3 +1,5 @@
+#Print each character in a string using indexing and a loop.
+
 # Get input from the user
 input_string = input("Enter a string: ")
 
