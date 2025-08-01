@@ -38,9 +38,3 @@
 | 32       | 🟥 VSK       | `AllampallyKishore`          | Many projects, none deployable                              | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/PY_M_158_Allampally%20Kishore)                                            |
 | 33       | 🟥 VSK       | `KeerthiChirumamilla`        | Submitted, can be deployed                                  | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/PY-F-146_G%20Sai%20Praharshitha_Submission)                               |
 | 34       | 🟥 VSK       | `Santanperumalla`            | Submitted, can't be deployed yet                            | [GitHub Link](https://github.com/saikrishnavadali05/SSSSO-RR-District-Skill-Development-Training/tree/master/may_2025_contributions/PY_M_09_PERUMALLA_SANTAN_NARAYANA_SAI)                                    |
-
----
-
-If you want, I can **make a cleaned-up Markdown version** so you can directly paste it into your project README without breaking formatting.
-
-Do you want me to do that next?
