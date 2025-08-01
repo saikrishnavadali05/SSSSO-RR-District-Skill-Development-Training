@@ -7,3 +7,6 @@ print("Python\rJava")
 #Before: Python
 #After : Javaon   ← "Java" replaced "Pyth"
 
+# Print a string with a carriage return
+print("Python\rJava")
+

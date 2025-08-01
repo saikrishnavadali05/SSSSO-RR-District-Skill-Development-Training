@@ -1,0 +1,4 @@
+text = "python is easy to learn"
+msg = "HELLO WORLD"
+print(text.upper())
+print(msg.lower())

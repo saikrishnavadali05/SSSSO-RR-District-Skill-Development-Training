@@ -1,0 +1,73 @@
+Goal 1 : To build a website to find house rentals
+Goal 2: personal website to show my projects
+Goal 3 : website for selling handmade candles
+Goal 4:  website for car rentals
+
+-----------
+personal website to show my projects
+-----------
+
+
+Prompts that we want to try:
+1. Pasting an existing website url and build a similar website for me.
+2. make a website to find rentals in Hyderabad
+How will you start the website creation using prompt
+3. I'm a beginner and have no to little knowledge in web development and 
+	I want a roadmap to build a so and so website, Give me a structured plan
+4. 
+5. How will explain the entire code while building the website to user knowledge 
+6. I want to build a personal website to show my projects . 
+	I want to learn by doing it with HTML and CSS. Please help me step by step.
+7. Think as senior web developer and make a web site for building a website for car rentals. 
+Me think of as a client who knows nothing about this.
+8. Act like a web designer. Help me create a basic website for selling handmade candles. 
+	I need content, layout, and design ideas. Make it beginner-friendly.
+9. I am new to coding. Teach me how to build a simple website using HTML and CSS. 
+   Start from the beginning and go step-by-step with explanations
+
+
+
+How will you start the website creation using prompt -> 30 -35 mins
+
+Pasting an existing website url and build a similar website for me. -> 30mins 
+
+I'm a beginner and have no to little knowledge in web development and 
+	I want a roadmap to build a so and so website, Give me a structured plan -> 20 mins
+
+Think as senior web developer and make a web site for building a website for car rentals. 
+Me think of as a client who knows nothing about this. -> 20 mins
+------------------------
+I'm a beginner and have no to little knowledge in web development and 
+	I want a roadmap to build a so and so website, Give me a structured plan -> 20 mins
+
+Think as senior web developer and make a web site for building a website for car rentals. 
+Me think of as a client who knows nothing about this. -> 20 mins [10-15minutes]
+---------------------------
+
+I'm a beginner and have no to little knowledge in web development and 
+I want a roadmap to build a so and so website, Give me a structured plan 
+Think as senior web developer and make a web site for building a website for car rentals. 
+Me think of as a client who knows nothing about this. 
+Give me a prompt to build a modern website with appealing UI using 21st.dev designs, that prompt I want to give to lovable.dev
+
+
+Build prompt from prompt, give that prompt to lovable
+
+[lovable -> 10 minutes]
+
+
+prompt -> chatgpt -> prompt -> lovable (10mins) -> website is ready
+
+
+
+
+
+
+
+
+
+
+
+
+
+

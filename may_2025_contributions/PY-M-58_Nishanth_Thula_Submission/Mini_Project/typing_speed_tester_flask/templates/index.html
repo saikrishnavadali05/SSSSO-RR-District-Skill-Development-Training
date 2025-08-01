@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Typing Speed Tester</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background: #f9fafb; }
+        input[type=text] { width: 50%; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Typing Speed Tester</h2>
+    <p>Type this text:</p>
+    <h3>{{ text }}</h3>
+    <form method="post" action="{{ url_for('result') }}">
+        <input type="text" name="typed_text" required autofocus>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
