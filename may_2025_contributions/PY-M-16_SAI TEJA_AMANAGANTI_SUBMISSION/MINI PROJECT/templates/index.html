@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Static Currency Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Beautiful gradient background with particles */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #cd9cf2 0%, #f6d365 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.13;
+      background: radial-gradient(circle, #f78436 0 70%, transparent 100%);
+      animation: move 12s infinite alternate;
+      pointer-events: none;
+    }
+    .particle:nth-child(1) {
+      width: 140px; height: 140px; left: 7vw; top: 15vh; animation-delay: 0s;
+    }
+    .particle:nth-child(2) {
+      width: 90px; height: 90px; right: 11vw; top: 8vh; animation-delay: 4s;
+    }
+    .particle:nth-child(3) {
+      width: 70px; height: 70px; left: 5vw; bottom: 8vh; animation-delay: 2s;
+      background: radial-gradient(circle, #ffecd2 0 70%, transparent 100%);
+    }
+    .particle:nth-child(4) {
+      width: 110px; height: 110px; right: 4vw; bottom: 18vh; animation-delay: 6s;
+      background: radial-gradient(circle, #a1c4fd 0 70%, transparent 100%);
+    }
+    @keyframes move {
+      0%   { transform: translateY(0) scale(1) rotate(0deg);}
+      100% { transform: translateY(40px) scale(1.08) rotate(16deg);}
+    }
+
+    /* Card */
+    .converter-container {
+      background: rgba(255,255,255,0.81);
+      padding: 2.7em 2em 2em 2em;
+      border-radius: 25px;
+      box-shadow: 0 12px 38px rgba(112,43,198,0.14), 0 1.5px 9px rgba(78,13,108,0.08);
+      max-width: 370px;
+      width: 100%;
+      backdrop-filter: blur(12px) saturate(120%);
+      position: relative;
+      animation: floatIn 0.88s cubic-bezier(.3,1.5,.5,1) 1;
+    }
+    @keyframes floatIn {
+      0% { opacity:0; transform: translateY(50px) scale(.94);}
+      100% { opacity:1; transform: translateY(0) scale(1);}
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.68em;
+      letter-spacing: 1.7px;
+      color: #9c27b0;
+      margin-bottom: 1.7em;
+      background: linear-gradient(90deg, #f78436, #765af8 85%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 1px 0 #fff3;
+    }
+
+    /* Labels and inputs */
+    label {
+      display: block;
+      font-size: 1em;
+      margin-bottom: 0.38em;
+      color: #524876;
+      letter-spacing: .6px;
+      font-weight: 500;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.75em .8em;
+      margin-bottom: 1.2em;
+      font-size: 1.05em;
+      border-radius: 9px;
+      border: 1.3px solid #dec7ff;
+      background: rgba(251,251,253,0.8);
+      transition: border-color 0.18s, box-shadow 0.24s;
+      box-sizing: border-box;
+      filter: drop-shadow(0 1px 2px #b3b3ee14);
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #f78436;
+      background: #fff2;
+      box-shadow: 0 0 0 2px #f7843630;
+    }
+    select option {
+      font-size: 1em;
+      background: #faf8fb;
+    }
+
+    /* Button with animation */
+    button {
+      background: linear-gradient(90deg, #765af8 20%, #fba728 95%);
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 1.05em;
+      border-radius: 9px;
+      font-size: 1.15em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.6em;
+      box-shadow: 0 3px 7px rgba(112,43,198,0.085);
+      letter-spacing: 1.2px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.18s, transform 0.15s;
+      z-index: 1;
+    }
+    button:before {
+      content: '';
+      position: absolute;
+      left: 70%;
+      top: -70%;
+      width: 70%;
+      height: 260%;
+      background: rgba(253, 230, 173, 0.25);
+      border-radius: 60%;
+      transform: rotateZ(25deg);
+      animation: shine 1.5s infinite linear;
+      z-index: 0;
+      pointer-events: none;
+    }
+    @keyframes shine {
+      0% { left: 60%; top: -90%; }
+      100% { left: -45%; top: 120%; }
+    }
+    button:hover {
+      background: linear-gradient(90deg, #f78436 35%, #765af8 100%);
+      transform: translateY(-2.5px) scale(1.03);
+      box-shadow: 0 6px 24px #765af829, 0 2px 10px #faa24212;
+    }
+
+    /* Results and error with pop-in effect */
+    .result, .error {
+      margin-top: 1.23em;
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 1px;
+      font-size: 1.06em;
+      padding: 0.83em 0.7em;
+      border-radius: 10px;
+      box-shadow: 0 1.3px 10px #f1e9ff1a;
+      animation: popUp .7s cubic-bezier(.36,1.8,.6,1) 1;
+    }
+    @keyframes popUp {
+      0% { opacity:0; transform:translateY(36px) scale(.94);}
+      100% { opacity:1; transform: translateY(0) scale(1);}
+    }
+    .result {
+      color: #15b36d;
+      background: #edfff3;
+      border: 1px solid #baf2e9;
+      font-size: 1.18em;
+    }
+    .error {
+      color: #d7263d;
+      background: #fff0ed;
+      border: 1px solid #ffc2c2;
+      font-size: 1.14em;
+    }
+    @media (max-width: 520px) {
+      .converter-container {
+        padding: 1.1em;
+        max-width: 99vw;
+      }
+      h1 {
+        font-size: 1.08em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="converter-container">
+    <h1>💱 Static Currency Converter</h1>
+    <form method="POST" autocomplete="off">
+      <label for="amount">Amount</label>
+      <input type="number" min="0" step="any" name="amount" id="amount" required autocomplete="off" placeholder="Enter amount">
+
+      <label for="from_currency">From</label>
+      <select name="from_currency" id="from_currency" required>
+        <option value="" disabled selected>Select currency</option>
+        <option value="USD">🇺🇸 United States Dollar (USD)</option>
+        <option value="EUR">🇪🇺 Euro (EUR)</option>
+        <option value="INR">🇮🇳 Indian Rupee (INR)</option>
+      </select>
+
+      <label for="to_currency">To</label>
+      <select name="to_currency" id="to_currency" required>
+        <option value="" disabled selected>Select currency</option>
+        <option value="USD">🇺🇸 United States Dollar (USD)</option>
+        <option value="EUR">🇪🇺 Euro (EUR)</option>
+        <option value="INR">🇮🇳 Indian Rupee (INR)</option>
+      </select>
+      <button type="submit">Convert</button>
+    </form>
+
+    {% if result is not none %}
+      <div class="result">✅ Converted Amount: <b>{{ result | round(2) }}</b></div>
+    {% endif %}
+
+    {% if error %}
+      <div class="error">❌ {{ error }}</div>
+    {% endif %}
+  </div>
+</body>
