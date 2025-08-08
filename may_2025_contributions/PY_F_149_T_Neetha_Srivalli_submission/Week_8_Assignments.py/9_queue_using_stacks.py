@@ -1,12 +1,12 @@
-class QueueUsingStacks:
-    def __init__(self):
+class QueueUsingStacks:    #Class to implement a queue using two stacks
+    def __init__(self):       #Constructor to initialize two stacks
         self.stack1 = []
         self.stack2 = []
-
-    def enqueue(self, x):
+   
+    def enqueue(self, x):      #Funtion to add an element to the queue
         self.stack1.append(x)
 
-    def dequeue(self):
+    def dequeue(self):        #Function to remove an element from the queue
         if not self.stack2:
             while self.stack1:
                 self.stack2.append(self.stack1.pop())
