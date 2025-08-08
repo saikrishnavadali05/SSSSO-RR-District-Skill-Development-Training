@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 Avast/137.0.0.0" version="28.0.6">
+  <diagram id="usecase_diagram" name="LLM Use Cases">
+    <mxGraphModel dx="1426" dy="751" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1350" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="Customer (Pirate Style Complaint)" style="rounded=1;fillColor=#FFCC00;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="LLM: Translate to Calm &amp; Respectful American English" style="rounded=1;fillColor=#99CCFF;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="420" y="40" width="310" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Service Team (Calm English Reply)" style="rounded=1;fillColor=#CCFF99;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="970" y="40" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Service Team (Harsh Response)" style="rounded=1;fillColor=#FF9999;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="970" y="200" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="LLM: Convert to Polite English Pirate Style" style="rounded=1;fillColor=#99CCFF;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="420" y="200" width="320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Customer Receives Polite Pirate Reply" style="rounded=1;fillColor=#FFCC00;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="40" y="200" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="8" style="endArrow=block;endFill=1;strokeColor=#000000;" parent="1" source="2" target="3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="9" style="endArrow=block;endFill=1;strokeColor=#000000;" parent="1" source="3" target="4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" style="endArrow=block;endFill=1;strokeColor=#000000;" parent="1" source="4" target="5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" style="endArrow=block;endFill=1;strokeColor=#000000;" parent="1" source="5" target="6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" style="endArrow=block;endFill=1;strokeColor=#000000;" parent="1" source="6" target="7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

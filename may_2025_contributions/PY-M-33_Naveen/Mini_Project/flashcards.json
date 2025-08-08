@@ -1,0 +1,14 @@
+[
+  {
+    "term": "Python",
+    "definition": "Python programs are mainly used for a wide range of applications due to the language's versatility, readability, and extensive library ecosystem"
+  },
+  {
+    "term": "RDBMS",
+    "definition": "Relational Database Management System. It's a type of database management system that organizes data into tables (also known as relations) with rows and columns. RDBMSes are used to manage, query, and retrieve data efficiently, often using SQL"
+  },
+  {
+    "term": "Java",
+    "definition": "A high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible"
+  }
+]

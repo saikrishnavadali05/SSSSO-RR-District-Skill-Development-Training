@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Question</title>
+</head>
+<body>
+    <h2>{{ question }}</h2>
+    <p>Time left: <span id="timer">{{ countdown }}</span> seconds</p>
+
+    <form id="quizForm" method="post">
+        {% for option in options %}
+            <label>
+                <input type="radio" name="answer" value="{{ option }}" required>
+                {{ option }}
+            </label><br>
+        {% endfor %}
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        let timeLeft = {{ countdown }};
+        const timerEl = document.getElementById("timer");
+        const form = document.getElementById("quizForm");
+
+        // Countdown function every 1 second
+        const countdownInterval = setInterval(() => {
+            timeLeft--;
+            timerEl.textContent = timeLeft;
+
+            // When timer hits 0, stop and auto-submit form
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                form.submit();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

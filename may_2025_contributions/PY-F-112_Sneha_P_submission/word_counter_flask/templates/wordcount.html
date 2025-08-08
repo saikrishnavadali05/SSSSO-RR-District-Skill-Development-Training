@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🔥 Word Frequency Counter 🔥</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        margin: 0;
+        padding: 40px 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        text-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+    p.description {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        max-width: 600px;
+        text-align: center;
+        font-weight: 500;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    form {
+        background: #fff;
+        color: #333;
+        padding: 30px 35px;
+        border-radius: 15px;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #764ba2;
+        font-size: 1rem;
+        letter-spacing: 0.03em;
+    }
+    input[type="file"] {
+        margin-bottom: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 8px;
+        border: 2px solid #764ba2;
+        transition: border-color 0.3s ease;
+    }
+    input[type="file"]:hover {
+        border-color: #667eea;
+    }
+    textarea {
+        resize: vertical;
+        min-height: 150px;
+        padding: 15px;
+        font-size: 18px;
+        border-radius: 12px;
+        border: 2px solid #764ba2;
+        margin-bottom: 30px;
+        font-family: 'Courier New', Courier, monospace;
+        color: #333;
+        transition: border-color 0.3s ease;
+    }
+    textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 8px #667eea;
+    }
+    button {
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border: none;
+        color: white;
+        font-size: 1.25rem;
+        padding: 15px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        box-shadow: 0 5px 15px rgba(102,126,234,0.6);
+        transition: background 0.3s ease;
+        width: 100%;
+    }
+    button:hover {
+        background: linear-gradient(90deg, #764ba2, #667eea);
+        box-shadow: 0 8px 20px rgba(118,75,162,0.8);
+    }
+    .error {
+        background: #ff4c4c;
+        color: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 12px rgba(255,76,76,0.6);
+    }
+    h2 {
+        color: #fff;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        max-width: 700px;
+        border-collapse: collapse;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        background: rgba(255,255,255,0.95);
+        margin-bottom: 60px;
+        color: #333;
+    }
+    th, td {
+        padding: 15px 20px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    th {
+        background: #764ba2;
+        color: white;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+    tbody tr:nth-child(odd) {
+        background: #f0eaff;
+    }
+    tbody tr:hover {
+        background: #d1c4f0;
+        color: #2c2c2c;
+        transition: background 0.3s ease;
+    }
+    @media (max-width: 768px) {
+        body {
+            padding: 30px 10px;
+        }
+        form, table {
+            max-width: 100%;
+        }
+        h1 {
+            font-size: 2.2rem;
+        }
+        h2 {
+            font-size: 1.6rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>🔥 Word Frequency Counter 🔥</h1>
+<p class="description">Upload a text file or paste your text below, then click <strong>"Count Words"</strong> to see word frequencies instantly.</p>
+
+<form method="POST" enctype="multipart/form-data" novalidate>
+    <label for="file">Upload text file (.txt only):</label>
+    <input type="file" name="file" accept=".txt" />
+
+    <label for="textinput">Or paste text here:</label>
+    <textarea name="textinput" placeholder="Enter your text here...">{{ text|default('') }}</textarea>
+
+    <button type="submit">Count Words</button>
+</form>
+
+{% if error %}
+    <div class="error">{{ error }}</div>
+{% endif %}
+
+{% if wordcounts %}
+    <h2>Word Frequencies</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for word, count in wordcounts.most_common() %}
+            <tr>
+                <td>{{ word }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+</body>
+</html>

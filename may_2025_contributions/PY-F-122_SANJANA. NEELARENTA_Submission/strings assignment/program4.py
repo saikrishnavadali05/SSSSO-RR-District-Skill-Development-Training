@@ -1,4 +1,5 @@
-#program 4
+#Convert a given string to uppercase and lowercase using string methods.
+
 # Get input from the user
 input_string = input("Enter a string: ")
 
