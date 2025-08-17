@@ -1,2 +1,2 @@
 (* README.md *)
-Please add your resumes here
+Please add your resumes in this folder
