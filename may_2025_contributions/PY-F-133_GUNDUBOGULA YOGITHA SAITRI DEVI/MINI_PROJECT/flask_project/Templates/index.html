@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Currency Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f0f8ff;
+      max-width: 500px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    select, input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 12px 0;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Currency Converter</h2>
+
+  <form action="/convert" method="POST">
+    <label for="conversion">Select Conversion:</label>
+    <select name="conversion" id="conversion">
+      <option value="1">USD to INR</option>
+      <option value="2">INR to USD</option>
+      <option value="3">EUR to INR</option>
+      <option value="4">INR to EUR</option>
+      <option value="5">GBP to INR</option>
+      <option value="6">INR to GBP</option>
+    </select>
+
+    <label for="amount">Enter Amount:</label>
+    <input type="number" name="amount" step="0.01" id="amount" placeholder="Enter amount" required>
+
+    <button type="submit">Convert</button>
+  </form>
+
+  <div id="result">
+    {% if result %}
+      {{ result }}
+    {% endif %}
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
+  </div>
+
+</body>
+</html>
