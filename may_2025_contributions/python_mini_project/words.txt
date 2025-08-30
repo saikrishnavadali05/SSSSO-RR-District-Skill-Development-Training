@@ -1,0 +1,10 @@
+python
+flask
+bootstrap
+scramble
+puzzle
+developer
+backend
+frontend
+keyboard
+monitor
