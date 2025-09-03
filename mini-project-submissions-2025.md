@@ -1,9 +1,5 @@
 # 🌟 Mini Project Status - Python and Prompt Engineering - Skill Development Training
 
-> Please update your progress and raise PRs at the earliest to meet the final submission timeline.
-
-# 🌟 Mini Project Status - Python and Prompt Engineering - Skill Development Training  
-
 The following 24 names are Eligible to get certificate also
 | **S.No** | **Deployer** | **Trainee**                  | **Project Title**                                | **Status**                                                  | **Path**                                                                                                                                                                               |
 | -------- | ------------ | ---------------------------- | ------------------------------------------------ | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
