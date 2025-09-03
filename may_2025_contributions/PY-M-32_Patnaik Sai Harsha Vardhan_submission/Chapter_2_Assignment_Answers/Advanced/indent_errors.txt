@@ -1,0 +1,14 @@
+#27.Introduce at least 3 common indentation errors and explain how Python handles them.
+# Example of common indentation mistakes
+
+# 1. Missing indentation
+# if True:
+# print("Missing indentation")  # Error
+
+# 2. Extra indentation
+#     print("Unexpected indent")  # Error
+
+# 3. Inconsistent use of spaces and tabs
+# if True:
+# 	print("Tab indent")
+#     print("Space indent")  # Error

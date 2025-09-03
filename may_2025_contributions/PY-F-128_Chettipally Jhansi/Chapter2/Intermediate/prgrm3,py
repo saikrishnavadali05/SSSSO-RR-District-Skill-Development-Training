@@ -1,0 +1,13 @@
+name_of_degree = input("Enter the Degree/Btech: ")
+current_year = int(input("Enter the year: "))
+graduation_year = 0 
+
+if name_of_degree.lower() == "degree":
+    graduation_year = current_year + 3
+elif name_of_degree.lower() == "btech":
+    graduation_year = current_year + 4
+else:
+    graduation_year = current_year + 2
+
+print(f"Current year: {current_year}")
+print(f"Expected graduation year: {graduation_year}")

@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="PrompEngg-Diagram" name="Prompt Engineering Overview">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1350">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Central Node: Prompt Engineering -->
+        <mxCell id="2" value="Prompt Engineering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7d674;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="400" y="140" width="220" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- What is it? -->
+        <mxCell id="3" value="&#8226; Designing, refining, and optimizing prompts&#10;&#8226; Guides generative AI (e.g., LLMs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f7fafc;" vertex="1" parent="1">
+          <mxGeometry x="90" y="40" width="260" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#bdb76b;endArrow=block;endFill=1;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Key Techniques -->
+        <mxCell id="5" value="Key Techniques" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b7e8d1;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="40" width="140" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="6" value="• Precise format &amp; wording&#10;• Iterative refinement&#10;• Few-shot &amp; chain-of-thought" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f5e9;" vertex="1" parent="1">
+          <mxGeometry x="720" y="80" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#62a16b;endArrow=block;endFill=1;" edge="1" parent="1" source="2" target="5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#62a16b;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Why Important -->
+        <mxCell id="9" value="Why Important?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6a5c0;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="300" width="150" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="10" value="• Quality of output&#10;• Achieve specific outcomes&#10;• Reduce irrelevant results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbe9e7;" vertex="1" parent="1">
+          <mxGeometry x="430" y="340" width="220" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#c14d73;endArrow=block;endFill=1;" edge="1" parent="1" source="2" target="9">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#c14d73;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- Is Python needed? -->
+        <mxCell id="13" value="Is Python Coding part of Prompt Engineering?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66b3e2;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="210" width="320" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="14" value="No, not strictly.&#10;Prompt engineering is about natural language prompts, not code." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cce4f7;" vertex="1" parent="1">
+          <mxGeometry x="830" y="270" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#668ecd;endArrow=block;endFill=1;" edge="1" parent="1" source="2" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#668ecd;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+        <!-- How Python is Used -->
+        <mxCell id="17" value="How is Python used in practice?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fbdd6d;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="280" width="210" height="32" as="geometry"/>
+        </mxCell>
+        <mxCell id="18" value="• Automate prompts via APIs&#10;• Preprocess/generate prompts&#10;• Analyze outputs&#10;• Large-scale testing" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f1e7;" vertex="1" parent="1">
+          <mxGeometry x="100" y="320" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#e4a200;endArrow=block;endFill=1;" edge="1" parent="1" source="2" target="17">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#e4a200;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

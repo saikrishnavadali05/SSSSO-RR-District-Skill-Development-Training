@@ -1,0 +1,173 @@
+1. Who created Python and in which year?
+Ans:
+Python was created by Guido van Rossum in the year 1991.
+
+2. What are some major goals behind Python's development?
+Ans:
+Readability
+Python emphasizes clean, readable code to make programming more intuitive.
+
+Simplicity
+It aims to be easy to learn and use, allowing beginners and professionals to be productive quickly.
+
+Versatility
+Python is designed to be general-purpose, usable in web development, data science, automation, AI, and more.
+
+Open Source
+Python was developed to be free and open, encouraging a strong community and widespread adoption.
+
+Productivity and Speed
+By offering high-level data structures and dynamic typing, Python speeds up development without compromising power.
+
+
+3. Name three key applications of Python in the real world.
+Ans: 
+
+Web Development
+
+Data Science and Machine Learning
+
+Automation and Scripting
+
+
+6. Write any 3 features of Python that make it beginner-friendly.
+Ans:
+Simple Syntax
+Python uses plain English-like syntax, making it easy to read and write, especially for beginners.
+
+Interpreted Language
+Python runs code line by line, allowing for immediate feedback and easier debugging during learning.
+
+Extensive Standard Library
+Python includes a wide range of built-in modules and functions, reducing the need to write code from scratch.
+
+
+8. Give two examples of industries where Python is applied?
+Ans:   
+Here are two examples of industries where Python is widely applied:
+
+->Finance and FinTech
+
+Python is used for quantitative analysis, algorithmic trading, risk management, and financial modeling.
+
+Libraries like Pandas, NumPy, SciPy, and QuantLib help in data analysis and simulations.
+
+It's also used to build backend systems for financial platforms.
+
+->Healthcare and Bioinformatics
+
+Python supports processing and analyzing medical data, genomics, and drug discovery.
+
+
+Libraries such as Biopython, scikit-learn, and TensorFlow are used for research, machine learning in diagnostics, and data visualization.
+
+12. Write short notes on Python's role in: (a) Data Science (b) Web Development
+Ans:
+(a) Data Science
+Python is a leading language in data science due to its rich ecosystem of libraries like Pandas, NumPy, Matplotlib, and Scikit-learn. It helps in data cleaning, analysis, visualization, and building machine learning models with ease and efficiency.
+
+(b) Web Development
+Python supports rapid web development using frameworks like Django and Flask. These frameworks simplify tasks like URL routing, database management, and user authentication, allowing developers to build scalable and secure web applications quickly.
+
+
+13. List any 4 popular Python frameworks/libraries and their use cases.
+Ans:
+a. Django
+
+Use Case: Full-stack web development
+
+Example: Building secure and scalable web applications like e-commerce sites or content management systems.
+
+b. NumPy
+
+Use Case: Scientific computing and numerical analysis
+
+Example: Handling large arrays, matrices, and performing complex mathematical operations.
+
+c. TensorFlow
+
+Use Case: Machine learning and deep learning
+
+Example: Training neural networks for tasks like image recognition, natural language processing, and AI models.
+
+d. Flask
+
+Use Case: Lightweight web applications and APIs
+
+Example: Building RESTful APIs or simple web services with minimal setup.
+
+
+19. Find and list at least 5 real-world companies that use Python and what they use it for
+Ans:
+Google – Python is used extensively in system building, APIs, and internal tooling. It's one of Google's official languages.
+
+Netflix – Python powers various aspects of Netflix’s infrastructure including automation, data analysis, and recommendation algorithms.
+
+Instagram – The backend of Instagram is largely written in Python using Django.
+
+Spotify – Python is used for backend services and data analysis.
+
+Dropbox – The desktop client and much of the server-side logic are written in Python.
+
+
+22. Describe how Python supports multiple programming paradigms.
+Ans:
+a) Procedural Programming
+Python allows writing code in a step-by-step, function-based manner.
+
+You can define functions and execute statements sequentially.
+
+Useful for scripting and small programs.
+
+Example:
+
+def greet(name):
+    print(f"Hello, {name}!")
+greet("Alice")
+
+b)  Object-Oriented Programming (OOP)
+Python supports classes, inheritance, encapsulation, and polymorphism.
+
+Helps organize code into reusable and modular objects.
+
+Example:
+
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+d = Dog()
+d.speak()
+
+c) Functional Programming
+Python treats functions as first-class objects and supports concepts like higher-order functions, map, filter, reduce, and lambda expressions.
+
+Example:
+
+numbers = [1, 2, 3, 4]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)
+
+26. How is Python used in embedded systems and IoT, despite being an interpreted language?
+Ans:
+a. Lightweight Implementations
+MicroPython and CircuitPython are trimmed-down versions of Python designed to run on microcontrollers with limited resources.
+
+They enable scripting directly on devices like ESP32, Raspberry Pi Pico, and Adafruit boards.
+
+b. Rapid Prototyping
+Python’s simplicity allows developers to quickly write and test IoT applications without deep knowledge of low-level programming.
+
+Ideal for proof-of-concept and early-stage development.
+
+c. Sensor and Device Control
+Python libraries (like machine, pySerial, or RPi.GPIO) make it easy to interact with sensors, actuators, and other hardware.
+
+Widely used on platforms like Raspberry Pi.
+
+Despite being interpreted and slower than C/C++, Python’s flexibility and ease of use make it valuable in embedded/IoT when performance constraints are manageable or when rapid development is more important.
+

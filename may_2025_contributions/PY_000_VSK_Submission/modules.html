@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modules</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Modules in Python</h1>
+  </header>
+
+  <div class="container">
+    
+    <p>
+      A <strong>module</strong> is a file containing Python code (functions, classes, variables) that you can reuse in other Python programs using the <code class="language-python">import</code> statement. This helps you organize code logically and encourages reusability.
+    </p>
+
+    <h2>Why Use Modules?</h2>
+    <ul>
+      <li>Organize large programs into smaller manageable parts</li>
+      <li>Reuse code across multiple programs</li>
+      <li>Access built-in Python functionalities</li>
+      <li>Create your own libraries</li>
+    </ul>
+
+    <h2>Using Built-in Modules</h2>
+    <pre><code class="language-python">import math
+
+print(math.sqrt(16))  # Output: 4.0
+print(math.pi)        # Output: 3.141592653589793</code></pre>
+
+    <h2>Creating and Using Your Own Module</h2>
+    <p>Suppose you create a file named <code class="language-python">my_utils.py</code>:</p>
+    <pre><code class="language-python"># my_utils.py
+def greet(name):
+    return f"Hello, {name}!"
+</code></pre>
+    <p>Then use it in another Python file:</p>
+    <pre><code class="language-python">import my_utils
+
+print(my_utils.greet("John"))  # Output: Hello, John!</code></pre>
+
+    <h2>Importing Specific Functions</h2>
+    <pre><code class="language-python">from math import sqrt, pi
+
+print(sqrt(9))  # Output: 3.0
+print(pi)       # Output: 3.141592653589793</code></pre>
+
+    <h2>Renaming Modules (Alias)</h2>
+    <pre><code class="language-python">import math as m
+
+print(m.pow(2, 3))  # Output: 8.0</code></pre>
+
+    <a href="namespaces.html" class="next-button">Next: Namespaces</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</body>
+</html>

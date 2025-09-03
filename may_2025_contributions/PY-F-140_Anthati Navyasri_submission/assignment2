@@ -1,0 +1,287 @@
+first and last character of a string:
+user_input = input("Enter a string: ")
+if len(user_input) > 0:
+    first_char = user_input[0]
+    last_char = user_input[-1]
+    print("First character:", first_char)
+    print("Last character:", last_char)
+else:
+    print("The string is empty.")
+
+
+ string is palindrome (or)not:
+user_input = input("Enter a string: ")
+normalized_str = user_input.lower()
+if normalized_str == normalized_str[::-1]:
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
+
+
+    string using indexing and loop:
+user_input = input("Enter a string: ")
+for i in range(len(user_input)):
+    print(f"Character at index {i}: {user_input[i]}")
+
+
+    Reverse a string using slicing:
+    def reverse_string(s):
+    return s[::-1]
+user_input = input("Enter a string: ")
+reversed_str = reverse_string(user_input)
+print("Reversed string:", reversed_str)
+
+
+string with dashes:
+user_input = input("Enter a string: ")
+modified_string = user_input.replace(" ", "-")
+print("Modified string:", modified_string)
+
+
+string on a comma:
+user_input = input("Enter a comma-separated string: ")
+elements = user_input.split(",")
+for i, item in enumerate(elements):
+    print(f"Element {i + 1}: {item.strip()}")
+
+
+    more than four letters:
+    def filter_long_words(sentence):
+    words = sentence.split()
+    long_words = [word for word in words if len(word) > 4]
+    return long_words
+user_input = input("Enter a sentence: ")
+result = filter_long_words(user_input)
+print("Words with more than 4 letters:", result)
+
+
+longest word in a sentence:
+def find_longest_word(sentence):
+    words = sentence.split()
+    longest = max(words, key=len)
+    return longest
+user_input = input("Enter a sentence: ")
+longest_word = find_longest_word(user_input)
+print("The longest word is:", longest_word)
+
+
+frequency of each character:
+def count_char_frequency(s):
+    freq_dict = {}
+    for char in s:
+        if char in freq_dict:
+            freq_dict[char] += 1
+        else:
+            freq_dict[char] = 1
+    return freq_dict
+user_input = input("Enter a string: ")
+frequency = count_char_frequency(user_input)
+print("Character frequency:", frequency)
+
+
+substrings of length K:
+def unique_substrings(s, k):
+    if k > len(s) or k <= 0:
+        return []
+    substrings = set()
+    for i in range(len(s) - k + 1):
+        substr = s[i:i+k]
+        substrings.add(substr)
+    return list(substrings)
+user_input = input("Enter a string: ")
+k = int(input("Enter the value of k: "))
+result = unique_substrings(user_input, k)
+print("Unique substrings of length", k, ":", result)
+
+
+Newline escape sequence \n:
+print("Hello\\nWorld")
+
+
+backslash \\in a string:
+print("This is a backslash: \\")
+
+
+spans multiple lines:
+multi_line_string = "This is line one.\nThis is line two.\nThis is line three."
+print(multi_line_string)
+
+
+bach slashes in a window file:
+def escape_backslashes(path):
+    return path.replace("\\", "\\\\")
+file_path = input("Enter a Windows file path: ")
+escaped_path = escape_backslashes(file_path)
+print("Escaped path:", escaped_path)
+
+
+Mix of quotes:
+mixed_string = "She said, \"It's a beautiful day!\"\nLet's go for a walk.\\End"
+print(mixed_string)
+
+
+tab escape sequence:
+print("Person A:\tHi there!\nPerson B:\tHello! How are you?\nPerson A:\tI'm doing great.\n\t\tHow about you?\nPerson B:\tI'm fine too.\n\t\tThanks for asking!")
+
+
+newline escape sequence with a space:
+user_input = input("Enter a string (use \\n for newline escape sequences): ")
+# Replace all literal '\n' (2 characters) with a space
+modified_string = user_input.replace("\\n", " ")
+print("Modified string:", modified_string)
+
+
+simple console clock:
+import time
+import datetime
+try:
+    while True:
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        print(f"\rCurrent Time: {current_time}", end="", flush=True)
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("\nClock stopped.")
+
+
+    print the raw text only:
+    import re
+def clean_escape_characters(s):
+    cleaned = re.sub(r'\\[abfnrtv\'"\\]', '', s)  # removes \n, \t, \r, etc.
+    return cleaned
+user_input = input("Enter a string with escape characters (e.g., Hello\\nWorld\\t!): ")
+cleaned_string = clean_escape_characters(user_input)
+print("Cleaned string:", cleaned_string)
+
+
+Animation in the console:
+import time
+def text_animation():
+    text = "Hello, World!"
+    for char in text:
+        print(char, end="", flush=True)
+        time.sleep(0.2)
+    for _ in range(len(text)):
+        print("\b", end="", flush=True)
+        time.sleep(0.2)
+    for char in text:
+        print(char, end="", flush=True)  
+        time.sleep(0.2)
+text_animation()
+
+
+number is positive,negative or zero:
+number = float(input("Enter a number: "))
+if number > 0:
+    print("The number is positive.")
+elif number < 0:
+    print("The number is negative.")
+else:
+    print("The number is zero.")
+
+
+    print all number from 1 to 10:
+num = 1
+while num <= 10:
+    print(num)
+    num += 1  
+
+
+    Number is even or odd:
+number = int(input("Enter a number: "))
+if number % 2 == 0:
+    print("The number is even.")
+else:
+    print("The number is odd.")
+
+
+    Factorial of a number:
+num = int(input("Enter a number: "))
+factorial = 1
+i = 1
+while i <= num:
+    factorial *= i
+    i += 1
+
+
+    Reverse a given number:
+num = int(input("Enter a number: "))
+reversed_num = 0
+original_num = num
+while num != 0:
+    digit = num % 10
+    reversed_num = reversed_num * 10 + digit
+    num //= 10  
+
+
+   check string is palindrome:
+text = input("Enter a string: ")
+is_palindrome = True
+for i in range(len(text) // 2):
+    if text[i] != text[-(i + 1)]:
+        is_palindrome = False
+        break
+if is_palindrome:
+    print("The string is a palindrome.")
+else:
+    print("The string is not a palindrome.")
+
+
+    Count the number of vowels:
+text = input("Enter a string: ")
+vowel_count = 0
+vowels = "aeiouAEIOU"
+for char in text:
+    if char in vowels:
+        vowel_count += 1
+print("Number of vowels in the string:", vowel_count)
+
+
+Armstrong numbers between 100 and 999:
+# Armstrong numbers have the property: sum of cubes of digits = number itself
+
+print("Armstrong numbers between 100 and 999 are:")
+for hundreds in range(1, 10):
+    for tens in range(0, 10):
+        for units in range(0, 10):
+            num = hundreds * 100 + tens * 10 + units
+            sum_of_cubes = hundreds**3 + tens**3 + units**3
+            if num == sum_of_cubes:
+                print(num)
+
+
+ Number guessing game:
+ import random
+secret_number = random.randint(1, 100)
+max_attempts = 5
+print("Welcome to the Number Guessing Game!")
+print(f"You have {max_attempts} attempts to guess the number between 1 and 100.")
+for attempt in range(1, max_attempts + 1):
+    guess = int(input(f"Attempt {attempt}: Enter your guess: "))
+    if guess == secret_number:
+        print(f"Congratulations! You guessed the number in {attempt} attempt(s)!")
+        break
+    elif guess < secret_number:
+        print("Too low.")
+    else:
+        print("Too high.")
+else:
+    print(f"Sorry! You've used all {max_attempts} attempts. The number was {secret_number}.")
+
+
+    First n prime numbers:
+n = int(input("Enter how many prime numbers you want: "))
+
+count = 0    
+num = 2      
+print(f"The first {n} prime numbers are:")
+while count < n:
+    is_prime = True
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            is_prime = False
+            break
+    if is_prime:
+        print(num, end=" ")
+        count += 1
+    num += 1
+    

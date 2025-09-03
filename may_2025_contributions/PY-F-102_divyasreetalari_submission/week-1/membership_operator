@@ -1,0 +1,3 @@
+string = " python "
+letter = input("Enter a letter in string: ")
+print(letter in string)

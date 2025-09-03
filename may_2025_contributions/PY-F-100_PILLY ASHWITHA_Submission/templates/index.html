@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List - Flask</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+        h2 { color: #333; }
+        .task { margin-bottom: 10px; padding: 10px; background: #fff; border-radius: 5px; }
+        .done { text-decoration: line-through; color: gray; }
+        form.inline { display: inline; }
+        input[type="text"] { padding: 5px; width: 200px; }
+    </style>
+</head>
+<body>
+    <h2>📝 Flask To-Do List</h2>
+    <form method="POST">
+        <input type="text" name="task" placeholder="Task name" required>
+        <input type="date" name="due" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <hr>
+    {% for task in tasks %}
+        <div class="task">
+            <form class="inline" action="/toggle/{{ loop.index0 }}">
+                <button type="submit">{{ "✅" if task.done else "⬜" }}</button>
+            </form>
+            <span class="{{ 'done' if task.done }}">{{ task.text }} (Due: {{ task.due }})</span>
+            <form class="inline" action="/delete/{{ loop.index0 }}">
+                <button type="submit">🗑</button>
+            </form>
+            <form class="inline" method="POST" action="/edit/{{ loop.index0 }}">
+                <input type="text" name="new_text" value="{{ task.text }}">
+                <input type="date" name="new_due" value="{{ task.due }}">
+                <button type="submit">✏ Save</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>

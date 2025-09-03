@@ -1,0 +1,87 @@
+def list_num():
+    num = list(range(0, 11))
+    for number in num:
+        print (number)
+list_num()
+
+def list1():
+    numbers = list(range(1, 11))
+    print(numbers)
+list1()
+
+def cr_tupl():
+    fruits = ('apple','banana','mango','orange','grapes')
+    print(fruits[2])
+cr_tupl()
+
+
+def add_numbers_1():
+    x = int(input("Enter first number: "))
+    y = int(input("Enter second number: "))
+    sum = x + y 
+    print("The sum is:", sum)
+add_numbers_1()
+
+def set_len():
+    num = {'1','2','3','4','5'}
+    print(len(num))
+set_len()    
+"""
+def student():
+    studentslist = {"name": "divya","score" :98}
+    print(studentslist)
+    """
+def stud_1():
+    students = {}
+    for i in range(3):
+        name = str(input(f"Enter name of student {i + 1}: "))
+        score = int(input(f"Enter score of {name}: "))
+        students[name] = score
+
+        print("\nStudent Scores:")
+        print(students)
+stud_1()
+
+def tuptolist():
+    tuple_list=('1','2','3')
+    list_1= list(tuple_list)
+    print(list_1)
+tuptolist()
+
+def list_2():
+    string = ['apple','banana','grapes']
+    for str in string:
+        print(str)
+    
+list_2()
+
+def names_age():
+    emp = {}
+    for i in range(3):
+        name = str(input(f"Enter name of emp {i + 1}: "))
+        age = int(input(f"Enter age of {name}: "))
+        emp[name] = age
+
+        print("\nage of emp:")
+        print(emp)
+names_age()
+"""
+def max_of_three(a, b, c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+        print(max_of_three(1, 5, 1))
+max_of_three()
+"""
+def set_2():
+    my_set = set()
+    my_set.add("apple")
+    my_set.add("banana")
+    if "apple" in my_set:
+        print("apple exists in the set")
+    else:
+        print("apple does not exist in the set")
+set_2()
