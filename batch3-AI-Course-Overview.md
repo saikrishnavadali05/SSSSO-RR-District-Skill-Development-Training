@@ -2,7 +2,7 @@
 
 ## **120-Hour Certification Program on
 
-Generative AI & Agentic AI with ML and DL Foundations**
+Generative AI & Agentic AI with ML and DL Foundations for Interviews**
 
 ---
 
