@@ -1,19 +1,21 @@
-# 📘 COURSE DOCUMENT
+# 📘 OFFICIAL COURSE DOCUMENT
 
-## 120-Hour Certification Program on
+## **120-Hour Certification Program on
 
-### **Generative AI & Agentic AI with ML and DL Foundations**
+Generative AI & Agentic AI with ML and DL Foundations**
 
 ---
 
 ## 1. Program Overview
 
-This **120-hour certification program** is designed for **engineering graduates and freshers** seeking entry-level opportunities in **Artificial Intelligence, Generative AI, and Agentic AI**.
+This **120-hour certification program** is designed for **engineering graduates and freshers** who are actively seeking entry-level roles in **Artificial Intelligence, Generative AI, and AI Application Development**.
 
-The program is delivered **free of cost** as part of a skill development initiative organized by the **Sri Sathya Sai Organisation**, with the objective of enabling youth to gain **industry-relevant, ethical, and practical AI skills**.
+The program is conducted **completely free of cost** as part of a skill development initiative organized by the **Sri Sathya Sai Seva Organisation**, with the objective of empowering youth with **industry-relevant, ethical, and practical AI skills**.
 
-The curriculum is designed with **Generative AI and Agentic AI as the primary focus**, aligned with current industry requirements.
-Machine Learning, Deep Learning, and Data Analysis are included to provide **foundational awareness and conceptual grounding**, enabling learners to understand system behavior and make informed design decisions.
+The curriculum is structured with **Generative AI and Agentic AI as the primary focus**, reflecting current and near-future industry demand.
+**Prompt Engineering** is treated as a core practical competency, enabling learners to interact effectively with Large Language Models and design reliable AI systems.
+
+Machine Learning, Deep Learning, and Data Analysis are included to provide **foundational awareness and conceptual grounding**, ensuring learners understand system behavior and make informed architectural decisions.
 
 ---
 
@@ -28,9 +30,9 @@ This program is intended for:
 
 This program is **not intended** for:
 
-* Research-focused AI roles
+* Research-oriented or PhD-level AI roles
 * Advanced ML/DL specialization tracks
-* Theory-heavy or PhD-oriented programs
+* Theory-heavy academic programs
 
 ---
 
@@ -39,12 +41,14 @@ This program is **not intended** for:
 By the end of the program, learners will be able to:
 
 * Understand the role of data, ML, DL, and GenAI in modern AI systems
-* Build **LLM-based applications** using industry-standard tools
+* Apply **prompt engineering techniques** for reasoning, tool usage, and agent coordination
+* Build **LLM-based applications** using industry-standard frameworks
 * Design and implement **Agentic AI systems**
 * Develop **multi-agent workflows** with structured communication
-* Integrate tools using standardized protocols
-* Explain project architecture clearly in interviews
+* Integrate external tools using standardized protocols
+* Explain system architecture clearly in interviews
 * Present **portfolio-ready AI projects**
+* Continuously prepare for interviews through **regular exposure to real interview questions and company-specific expectations**
 
 ---
 
@@ -54,26 +58,48 @@ By the end of the program, learners will be able to:
 
 * **120 Hours (Overall Program)**
 
-### Live Instruction
+### Live Instructor Availability
 
-* **72 Hours of Live Instructor-Led Sessions**
+* **72 hours of live instructor-led sessions**
 * Conducted over **12 weekends**
 * **3 hours on Saturday + 3 hours on Sunday**
 
-> Live teaching refers to **active instructor availability with live video**, explanations, interaction, and doubt resolution.
+Live teaching refers to **active instructor availability with live video**, explanations, interaction, and doubt resolution.
+
+---
+
+## 4.1 Interview-Oriented Teaching Approach
+
+This program follows a **continuous interview-aligned teaching methodology** to ensure learners remain alert, engaged, and industry-aware throughout the course.
+
+* **In every live session (Saturday and Sunday)**:
+
+  * Previous **interview questions** related to the day’s topics will be discussed
+  * Questions will be mapped to real interview expectations
+* Wherever applicable, learners will be informed:
+
+  * Which **companies** have asked similar questions
+  * The type of role and expectation behind the question
+* Trainers will explain:
+
+  * Why the question is asked
+  * What the interviewer is evaluating
+  * How to structure a strong and clear answer
+
+This approach ensures interview readiness is built **consistently throughout the course**, not treated as a separate activity at the end.
 
 ---
 
 ## 5. Mandatory Live Participation Policy
 
-To ensure seriousness, discipline, and engagement:
+To maintain discipline, seriousness, and engagement:
 
 * **Live camera ON is compulsory** for all live sessions
 * Learners must be visibly present throughout the session
 * Attendance is tracked based on live participation
 * Repeated non-compliance may lead to disqualification
 
-This policy is **non-negotiable** and applies for the **entire duration** of the course.
+This policy applies for the **entire duration of the program** and is **non-negotiable**.
 
 ---
 
@@ -110,11 +136,11 @@ This policy is **non-negotiable** and applies for the **entire duration** of the
 ### 8.1 Data Analysis (Foundational Awareness)
 
 * Python for data handling
-* NumPy, Pandas
+* NumPy and Pandas
 * Exploratory Data Analysis (EDA)
 * Feature understanding
-* Basic visualization
-* Data role in ML and GenAI systems
+* Basic data visualization
+* Role of data in ML and GenAI pipelines
 
 ---
 
@@ -124,9 +150,9 @@ This policy is **non-negotiable** and applies for the **entire duration** of the
 * Classification techniques
 * Clustering methods
 * Ensemble learning
-* Model evaluation
-* ML workflow & limitations
-* ML vs GenAI decision-making
+* Model evaluation metrics
+* ML workflow and limitations
+* Decision criteria: ML vs GenAI
 
 ---
 
@@ -135,115 +161,135 @@ This policy is **non-negotiable** and applies for the **entire duration** of the
 * Artificial Neural Networks (ANN)
 * Convolutional Neural Networks (CNN)
 * Computer Vision overview
-* Image processing basics
+* Image processing fundamentals
 * Pretrained model usage (awareness)
-* Explainable AI (XAI)
+* Explainable AI (XAI) concepts
 * Practical constraints of DL systems
 
 ---
 
-### 8.4 Generative AI (Primary Focus)
+### 8.4 Generative AI (Primary Focus – In-Depth)
 
 * Transformer architecture (intuition-based)
 * Large Language Models (LLMs)
 * Open-source vs proprietary LLMs
-* Prompt engineering
-* Ollama (local LLM execution)
-* LangChain
+
+**Prompt Engineering**
+
+* Zero-shot and few-shot prompting
+
+* Instruction-based prompting
+
+* Chain-of-Thought prompting
+
+* Structured prompts for tools and agents
+
+* Prompt patterns for RAG and multi-agent systems
+
+* Common prompt failure modes and mitigation
+
+* Ollama for local LLM execution
+
+* LangChain fundamentals
+
 * Vector databases
+
 * Retrieval-Augmented Generation (RAG)
+
+* Building document-based GenAI systems
 
 ---
 
-### 8.5 Agentic AI (Primary Focus)
+### 8.5 Agentic AI (Primary Focus – In-Depth)
 
 * Agentic AI fundamentals
-* Agents vs workflows vs chatbots
+* Agents vs chatbots vs workflows
 * Planning, reasoning, and memory
 * Tool-using agents
 * Multi-agent systems
 * **A2A (Agent-to-Agent) protocol**
-* LangGraph (agent orchestration)
+* LangGraph for agent orchestration and control flow
 * MCP (Model Context Protocol)
-* FastMCP
-* LangFuse (observability & evaluation)
-* Production-style agent system design
+* FastMCP for lightweight MCP servers
+* LangFuse for observability and evaluation
+* Designing production-style agent systems
 
 ---
 
-## 9. Teaching Responsibilities
+## 9. Teaching Responsibilities & Weekend Structure
 
-### Teaching Structure
+### Weekend Structure
 
-* **Saturday (3 hours):** Concepts, foundations, architecture
-* **Sunday (3 hours):** Hands-on implementation and system building
+* **Saturday (3 hours):** Concepts, foundations, architecture, reasoning
+* **Sunday (3 hours):** Hands-on labs, frameworks, system implementation
 
 ### Trainer Allocation
 
 **Sai Krishna – Saturdays**
 
-* Data, ML, DL foundations
-* Conceptual GenAI & Agentic AI
-* Transformer & LLM intuition
-* RAG and agent architecture
-* MCP and A2A design
-* System design & interview preparation
+* Data Analysis, ML, and DL foundations
+* Conceptual understanding of GenAI and Agentic AI
+* Transformer and LLM intuition
+* Prompt engineering principles
+* RAG and agent system architecture
+* MCP and A2A design concepts
+* System design discussions
+* Interview preparation and explanation skills
 
 **Akash – Sundays**
 
-* Hands-on labs
-* Ollama, LangChain, LangGraph
-* RAG implementation
-* Agent & multi-agent workflows
-* MCP & FastMCP implementation
-* LangFuse tracing
-* Capstone execution & deployment
+* Hands-on labs and implementations
+* Ollama, LangChain, LangGraph usage
+* RAG system development
+* Agent and multi-agent workflows
+* MCP and FastMCP implementation
+* A2A workflow execution
+* LangFuse tracing and observability
+* Capstone execution and deployment support
 
 ---
 
 ## 10. Selection & Enrollment Process
 
-This program follows a **strict two-stage selection process** to ensure quality and commitment.
+Enrollment is through a **strict two-stage selection process** to ensure quality and commitment.
 
 ### Stage 1: Online MCQ Test
 
-* Basic aptitude
+* Aptitude and logical reasoning
 * Python fundamentals
-* Logical reasoning
-* AI awareness
+* Basic AI awareness
 
-### Stage 2: Mini Project Submission (Compulsory)
+### Stage 2: Compulsory Mini Project Submission
 
 * Short applied project
-* Evaluated for:
+* Evaluated on:
 
   * Problem understanding
   * Code quality
   * Effort and seriousness
 
-👉 **Only candidates who clear both stages will be eligible for enrollment.**
+**Only candidates who clear both stages will be enrolled in the program.**
 
 ---
 
 ## 11. Projects & Capstone
 
-### Mini Projects (During Course)
+### Mini Projects (During the Program)
 
-1. ML-based prediction system
-2. RAG-based GenAI application
+1. Machine Learning-based prediction system
+2. RAG-based Generative AI application
 
-### Capstone Project (Mandatory)
-
-Options include:
+### Capstone Project (Mandatory – Choose One)
 
 * AI Teaching Assistant
 * Resume Screening Agent
 * Customer Support AI System
 * Research Assistant (multi-agent, A2A-based)
 
-Capstone must demonstrate:
+Each capstone must demonstrate:
 
 * LLM usage
+* Prompt engineering application
 * RAG or Agentic architecture
 * MCP-based tool integration
 * Clear explanation of design decisions
@@ -254,12 +300,12 @@ Capstone must demonstrate:
 
 To receive certification, learners must:
 
-* Maintain **minimum 70% attendance**
+* Maintain **minimum 85% attendance**
 * Comply with live camera policy
 * Complete all assignments
-* Submit mini projects
-* Successfully complete capstone project
-* Clear final evaluation / viva
+* Submit required mini projects
+* Successfully complete the capstone project
+* Clear final evaluation, including a **Previous Interview Questions–based MCQ test**
 
 **Certificate Awarded:**
 **Certified Generative & Agentic AI Engineer – 120 Hours**
@@ -268,17 +314,22 @@ To receive certification, learners must:
 
 ## 13. Organising Body
 
-This program is **completely free of cost** and is conducted as a **service-oriented skill development initiative** under the guidance and organization of the **Sri Sathya Sai Organisation**.
+This program is **completely free of cost** and is conducted as a **service-oriented skill development initiative** under the guidance and organization of the **Sri Sathya Sai Seva Organisation**.
 
 ---
 
-## 14. Summary for Organising Team
+## 14. Summary for Organising & Training Teams
 
 * Fresher-focused, job-oriented program
-* GenAI & Agentic AI as primary focus
-* Strong discipline and selection process
-* Mandatory live participation
+* Generative AI and Agentic AI as primary focus
+* Prompt engineering treated as a core skill
+* Continuous interview-question exposure in every class
+* Strong discipline and participation requirements
 * Clear trainer responsibility split
-* Portfolio-driven outcomes
+* Portfolio-driven learning outcomes
 
-This document serves as the **official reference** for curriculum delivery and coordination.
+---
+
+### ✅ FINAL NOTE
+
+This document represents the **final, approved curriculum reference** for planning, delivery, coordination, and communication of the program.
