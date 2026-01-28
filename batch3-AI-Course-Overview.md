@@ -328,8 +328,3 @@ This program is **completely free of cost** and is conducted as a **service-orie
 * Clear trainer responsibility split
 * Portfolio-driven learning outcomes
 
----
-
-### ✅ FINAL NOTE
-
-This document represents the **final, approved curriculum reference** for planning, delivery, coordination, and communication of the program.
