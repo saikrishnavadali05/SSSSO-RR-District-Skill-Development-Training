@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Learning Atlas — Curated GitHub Resources</title>
+<meta name="description" content="A curated map of high-quality AI learning repositories, courses, roadmaps and hands-on projects.">
+<style>
+:root{
+  --bg:#07111f; --panel:#0d1a2b; --panel2:#10233a; --text:#edf4ff; --muted:#9fb2c9;
+  --line:#1d334d; --accent:#6ee7f9; --accent2:#8b7cff; --good:#70e1a1;
+  --shadow:0 20px 60px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 10% 0%,#132d49 0,#07111f 34%,#050b14 100%);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);line-height:1.55}
+a{color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(5,11,20,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.navin{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:-.03em}.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}.navlinks a{text-decoration:none}.navlinks a:hover{color:#fff}
+.hero{padding:82px 0 60px;display:grid;grid-template-columns:1.35fr .65fr;gap:44px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #26435e;background:#0b1a2b;padding:7px 12px;border-radius:999px;color:var(--accent);font-size:13px;font-weight:700}
+h1{font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.055em;margin:20px 0}
+.gradient{background:linear-gradient(90deg,#fff,#9fe8f5 45%,#9f91ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:19px;color:var(--muted);max-width:720px}
+.hero-card{background:linear-gradient(145deg,rgba(16,35,58,.92),rgba(10,23,39,.92));border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+.hero-card .big{font-size:48px;font-weight:900;line-height:1;color:var(--accent)}
+.hero-card small{color:var(--muted)}
+.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.stat{padding:16px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025)}
+.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--muted)}
+section{padding:55px 0}
+.sectionhead{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
+h2{font-size:34px;letter-spacing:-.04em;margin:0}.sectionhead p{margin:5px 0 0;color:var(--muted)}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 28px}
+input,select{background:#0b1929;border:1px solid var(--line);color:#fff;border-radius:12px;padding:12px 14px;font:inherit}
+input{min-width:260px;flex:1}
+.filters button{background:#0b1929;color:var(--muted);border:1px solid var(--line);padding:10px 14px;border-radius:999px;cursor:pointer}
+.filters button.active,.filters button:hover{color:#06101c;background:var(--accent);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(180deg,#0d1b2c,#091523);border:1px solid var(--line);border-radius:18px;padding:21px;display:flex;flex-direction:column;min-height:300px;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#355675}
+.badge{display:inline-flex;align-self:flex-start;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800;background:#152c42;color:var(--accent)}
+.card h3{font-size:20px;line-height:1.2;margin:14px 0 8px}.card p{color:var(--muted);font-size:14px;margin:0 0 15px}
+.meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:17px}.tag{font-size:11px;color:#b9c8da;background:#0b1828;border:1px solid var(--line);padding:4px 7px;border-radius:7px}
+.stars{color:#f7cf68;font-size:13px}
+.cardfooter{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.btn{display:inline-block;text-decoration:none;background:#eef8ff;color:#07111f;font-weight:800;font-size:13px;padding:9px 12px;border-radius:9px}.btn:hover{background:var(--accent)}
+.callout{border:1px solid #31516d;background:linear-gradient(135deg,#0d2135,#111a32);border-radius:22px;padding:30px;margin-top:15px}
+.callout h3{font-size:26px;margin:0 0 8px}.callout p{color:var(--muted);max-width:800px}
+.layers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.layer{padding:20px;border:1px solid var(--line);border-radius:17px;background:#0a1726}.layer .num{color:var(--accent);font-weight:900}.layer h3{margin:8px 0}.layer p{color:var(--muted);font-size:13px}
+.path{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{padding:17px;border-radius:14px;background:#0b1929;border:1px solid var(--line);text-align:center}.step b{display:block}.step span{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--line);padding:35px 0 50px;color:var(--muted);font-size:13px}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.layers{grid-template-columns:repeat(2,1fr)}.path{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.navlinks{display:none}.hero{padding-top:50px}.grid,.layers{grid-template-columns:1fr}.statrow{grid-template-columns:1fr}h1{font-size:48px}}
+</style>
+</head>
+<body>
+<nav><div class="container navin">
+  <div class="brand">AI <span>Learning Atlas</span></div>
+  <div class="navlinks"><a href="#resources">Resources</a><a href="#layers">The Opportunity</a><a href="#path">Learning Path</a></div>
+</div></nav>
+
+<header class="container hero">
+  <div>
+    <span class="eyebrow">✦ Curated from the open-source ecosystem</span>
+    <h1>Stop searching.<br><span class="gradient">Start learning.</span></h1>
+    <p>There is already an incredible amount of AI education on the internet. This page maps some of the strongest GitHub repositories, courses, roadmaps and project collections — so learners can find the right resource instead of drowning in resources.</p>
+    <div class="statrow">
+      <div class="stat"><b>17+</b><span>curated resources</span></div>
+      <div class="stat"><b>4</b><span>curation layers</span></div>
+      <div class="stat"><b>∞</b><span>learning paths</span></div>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="big">∞</div>
+    <h3>The content problem has changed.</h3>
+    <small>We don't necessarily need another 500-hour AI course. We need a better answer to: <strong>“What should I learn next?”</strong></small>
+    <div style="margin-top:20px;color:#c9d7e7;font-size:14px">Discover → Compare → Sequence → Practice → Build</div>
+  </div>
+</header>
+
+<main>
+<section id="resources">
+<div class="container">
+  <div class="sectionhead">
+    <div><h2>AI learning resources</h2><p>Explore by learning style, depth and purpose.</p></div>
+  </div>
+  <div class="controls">
+    <input id="search" placeholder="Search resources, topics, projects..." aria-label="Search resources">
+    <div class="filters" id="filters">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="course">Courses</button>
+      <button data-filter="roadmap">Roadmaps</button>
+      <button data-filter="hands-on">Hands-on</button>
+      <button data-filter="curation">Curation</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+</section>
+
+<section id="layers">
+<div class="container">
+  <div class="sectionhead"><div><h2>Where the opportunity moves</h2><p>The ecosystem already covers a lot — but mostly as static resources.</p></div></div>
+  <div class="layers">
+    <div class="layer"><div class="num">01</div><h3>Create</h3><p>YouTube, blogs, courses, books, papers, tutorials and code.</p></div>
+    <div class="layer"><div class="num">02</div><h3>Curate</h3><p>Awesome lists and resource repositories collect what already exists.</p></div>
+    <div class="layer"><div class="num">03</div><h3>Sequence</h3><p>Roadmaps and bootcamps turn scattered resources into a learning journey.</p></div>
+    <div class="layer"><div class="num">04</div><h3>Personalize</h3><p>Choose the best next resource for one learner's goal, time, skill and job target.</p></div>
+  </div>
+  <div class="callout">
+    <h3>💡 The potential “curation layer”</h3>
+    <p>Imagine entering: <strong>“I know Python, have 1 hour/day, and want an AI Engineer job in 6 months.”</strong> Instead of returning hundreds of links, the platform could assemble a personalized route, explain why each resource was chosen, estimate time, identify prerequisites, recommend projects — and tell the learner what to skip.</p>
+  </div>
+</div>
+</section>
+
+<section id="path">
+<div class="container">
+  <div class="sectionhead"><div><h2>A simple learning journey</h2><p>One possible route assembled from the ecosystem.</p></div></div>
+  <div class="path">
+    <div class="step"><b>01 · Foundations</b><span>Python, ML & math</span></div>
+    <div class="step"><b>02 · Deep Learning</b><span>Neural nets & transformers</span></div>
+    <div class="step"><b>03 · LLM Engineering</b><span>RAG, tools & evaluation</span></div>
+    <div class="step"><b>04 · Production</b><span>Serving, monitoring & cost</span></div>
+    <div class="step"><b>05 · Portfolio</b><span>Build & ship real systems</span></div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><div class="container">
+  <strong>AI Learning Atlas</strong> · A concept for making the existing AI learning ecosystem easier to navigate.<br>
+  Resource links point to their respective open-source projects. Always verify current project activity and course content before committing to a learning path.
+</div></footer>
+
+<script>
+const resources = [
+{name:"Microsoft — Generative AI for Beginners",type:"course",tags:["Beginner","GenAI","Python","TypeScript"],desc:"21 lessons covering the fundamentals of building Generative AI applications, with Learn/Build lessons and additional learning resources.",url:"https://github.com/microsoft/generative-ai-for-beginners",score:"★★★★★",note:"Structured course"},
+{name:"Raschka — LLMs from Scratch",type:"hands-on",tags:["LLMs","Transformers","PyTorch","Deep Dive"],desc:"A build-from-first-principles journey through tokenization, embeddings, attention, transformers, training and fine-tuning.",url:"https://github.com/rasbt/LLMs-from-scratch",score:"★★★★★",note:"Implementation-first"},
+{name:"DAIR.AI — Prompt Engineering Guide",type:"curation",tags:["Prompting","RAG","Agents","Papers"],desc:"A large collection of guides, papers, lectures, notebooks and tools around prompt engineering, context engineering, RAG and AI agents.",url:"https://github.com/dair-ai/Prompt-Engineering-Guide",score:"★★★★★",note:"Meta-resource"},
+{name:"Awesome LLM Apps",type:"hands-on",tags:["Agents","RAG","MCP","Projects"],desc:"A large collection of runnable LLM and agent applications, useful when you want to learn by studying and modifying working projects.",url:"https://github.com/Shubhamsaboo/awesome-llm-apps",score:"★★★★★",note:"Project library"},
+{name:"DataTalksClub — LLM Zoomcamp",type:"course",tags:["RAG","Agents","Vector Search","Production"],desc:"A free, hands-on 10-week course focused on building, evaluating and monitoring real-world LLM applications.",url:"https://github.com/DataTalksClub/llm-zoomcamp",score:"★★★★★",note:"10-week journey"},
+{name:"Hugging Face Course",type:"course",tags:["Transformers","NLP","Deep Learning"],desc:"A major open course for learning modern NLP and transformer-based machine learning with the Hugging Face ecosystem.",url:"https://github.com/huggingface/course",score:"★★★★☆",note:"Ecosystem course"},
+{name:"Maxime Labonne — LLM Course",type:"roadmap",tags:["LLMs","Roadmap","Scientist","Engineer"],desc:"A structured path organized around LLM fundamentals, becoming an LLM scientist, and becoming an LLM engineer.",url:"https://github.com/mlabonne/llm-course",score:"★★★★★",note:"Role-oriented"},
+{name:"Karpathy — Neural Networks: Zero to Hero",type:"course",tags:["Neural Nets","PyTorch","From Scratch"],desc:"A practical video-and-code progression from basic neural networks toward increasingly capable language models.",url:"https://github.com/karpathy/nn-zero-to-hero",score:"★★★★★",note:"Pedagogy standout"},
+{name:"Awesome Machine Learning",type:"curation",tags:["ML","Books","Courses","Tools"],desc:"A classic meta-curated list covering machine learning frameworks, libraries, books, curricula, tools and other resources.",url:"https://github.com/josephmisiti/awesome-machine-learning",score:"★★★★☆",note:"Meta-resource"},
+{name:"Awesome Deep Learning",type:"curation",tags:["Deep Learning","Books","Videos","Papers"],desc:"Curates books, courses, lectures, papers, datasets, tutorials, frameworks and other deep-learning resources.",url:"https://github.com/christoschristofidis/awesome-deep-learning",score:"★★★★☆",note:"Meta-resource"},
+{name:"Awesome AI/ML Resources",type:"curation",tags:["Roadmap","ML","DL","NLP","CV"],desc:"A beginner-oriented collection spanning Python, mathematics, machine learning, deep learning, NLP, computer vision and reinforcement learning.",url:"https://github.com/armankhondker/awesome-ai-ml-resources",score:"★★★★☆",note:"Beginner map"},
+{name:"AI Engineering Hub",type:"hands-on",tags:["AI Engineering","RAG","Agents","Projects"],desc:"A project-oriented collection of AI engineering examples with beginner-to-advanced progression and practical tutorials.",url:"https://github.com/patchy631/ai-engineering-hub",score:"★★★★★",note:"Build-focused"},
+{name:"Open Source AI Engineering Roadmap",type:"roadmap",tags:["Roadmap","ML","DL","LLMs","Agents"],desc:"A curriculum-style path from programming and mathematics through ML, deep learning, LLMs, agents and projects.",url:"https://github.com/AgenticAiLabs/Ai-Engineering-Roadmap",score:"★★★★☆",note:"Curriculum map"},
+{name:"Start AI Engineering",type:"roadmap",tags:["Beginner","Books","Courses","Projects"],desc:"A practical starting guide that organizes videos, articles, books, documentation and projects for aspiring AI engineers.",url:"https://github.com/louisfb01/start-ai-engineering",score:"★★★★☆",note:"Getting started"},
+{name:"AI Engineer Handbook",type:"curation",tags:["Career","Projects","Books","Community"],desc:"A curated handbook spanning learning resources, projects, books, creators, communities and interviews.",url:"https://github.com/DataExpert-io/ai-engineer-handbook",score:"★★★★☆",note:"Career-oriented"},
+{name:"AI Engineering Field Guide",type:"curation",tags:["Jobs","Interviews","Skills","Market"],desc:"Connects AI-engineering learning with hiring practices, interview assignments, market research, engineering blogs and case studies.",url:"https://github.com/alexeygrigorev/ai-engineering-field-guide",score:"★★★★★",note:"Market intelligence"},
+{name:"100 Days of ML Code",type:"course",tags:["Challenge","ML","Daily Practice"],desc:"A challenge-based format that turns machine-learning study into a daily habit rather than an unbounded resource hunt.",url:"https://github.com/Avik-Jain/100-Days-Of-ML-Code",score:"★★★★☆",note:"Habit-based"},
+{name:"LLM Engineering Roadmap — 2026",type:"roadmap",tags:["LLM","MCP","Agents","Production"],desc:"A 24-week self-paced roadmap spanning foundations, applied LLM engineering, RAG, agents, production, security and advanced 2026 topics.",url:"https://github.com/tal7aouy/LLM-Engineering",score:"★★★★★",note:"2026-oriented"},
+{name:"AI Engineering from Scratch",type:"hands-on",tags:["LLMs","Fine-tuning","Inference","Deep Dive"],desc:"A detailed engineering curriculum covering scaling, SFT, RLHF, DPO, evaluation, quantization, inference optimization and production LLM engineering.",url:"https://github.com/rohitg00/ai-engineering-from-scratch",score:"★★★★★",note:"Advanced build path"},
+{name:"Ultimate AI Engineer Roadmap 2026",type:"roadmap",tags:["AI Engineer","Python","ML","Agents"],desc:"A broad zero-to-production roadmap covering Python, mathematics, ML, deep learning, transformers, LLM engineering and multi-LLM orchestration.",url:"https://github.com/PrinceSinghhub/Ultimate-AI-Engineer-Roadmap-2026",score:"★★★★☆",note:"Broad roadmap"}
+];
+
+const grid=document.getElementById("grid"), search=document.getElementById("search"), filters=document.getElementById("filters");
+let filter="all";
+function render(){
+ const q=search.value.toLowerCase().trim();
+ const data=resources.filter(r=>(filter==="all"||r.type===filter) &&
+   (!q || (r.name+" "+r.desc+" "+r.tags.join(" ")).toLowerCase().includes(q)));
+ grid.innerHTML=data.length?data.map(r=>`
+  <article class="card">
+   <span class="badge">${r.type.toUpperCase()}</span>
+   <h3>${r.name}</h3>
+   <p>${r.desc}</p>
+   <div class="meta">${r.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+   <div class="cardfooter"><div><div class="stars">${r.score}</div><small style="color:#8297ad">${r.note}</small></div>
+   <a class="btn" href="${r.url}" target="_blank" rel="noopener">Open GitHub ↗</a></div>
+  </article>`).join(""):`<div class="empty">No resources matched that search. Try “RAG”, “agents”, “roadmap” or “beginner”.</div>`;
+}
+filters.addEventListener("click",e=>{if(e.target.tagName==="BUTTON"){filter=e.target.dataset.filter;document.querySelectorAll("#filters button").forEach(b=>b.classList.remove("active"));e.target.classList.add("active");render();}});
+search.addEventListener("input",render); render();
+</script>
+</body>
+</html>
